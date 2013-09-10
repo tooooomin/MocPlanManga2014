@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><ti:app xmlns:ti="http://ti.appcelerator.org">
-    <id>com.cyberagent.app.manga</id>
-    <name>Cyber2014</name>
-    <version>0.1</version>
+    <id>com.cyberagent.naitei14.manga.app</id>
+    <name>MangaView</name>
+    <version>1.0</version>
     <publisher>fviAtt</publisher>
     <url>http://</url>
     <description>not specified</description>
@@ -14,7 +14,7 @@
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
-    <guid>93b2be0e-216e-41d3-8514-e0141be51654</guid>
+    <guid>5dabcb2f-8858-48d6-9e2d-f1394fd62ba7</guid>
     <property name="ti.ui.defaultunit" type="string">system</property>
     <iphone>
         <orientations device="iphone">
