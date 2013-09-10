@@ -9,7 +9,10 @@
  */
 
 exports.createCommonNavigationWindow = function(){
+	var uiconfig = require('/uiconfig');
 	height = Ti.Platform.displayCaps.platformHeight, width = Ti.Platform.displayCaps.platformWidth;
+	
+	
 	var base_window = Titanium.UI.createWindow({
 		//backgroundImage : background_path,
 		backgroundColor : 'rgb(255,235,205)',
@@ -96,7 +99,9 @@ exports.createCommonNavigationWindow = function(){
 	});
 	
 	base_window.addEventListener('touchend',function(event){
-
+		/*
+		 * 左右のスワップにおける差分から水平スワップを検出する
+		 */
 		if(event.x - base_window.win_touch_p.x > width *0.3){
 			moveOptionView('open');
 			//option_view.center = {x:width *0.45,y:height *0.5};	
@@ -108,10 +113,49 @@ exports.createCommonNavigationWindow = function(){
 			//option_view.center = {x:width * -0.5,y:height *0.5};
 		}
 		
+		/*
+		 * 上下のスワップにおける差分から鉛直スワップを検出する
+		 */
+		if(event.y- base_window.win_touch_p.y > height *0.3){
+			alert('up swapped');
+		}
+		
+		if(base_window.win_touch_p.y - event.y > height *0.3){
+			alert('up UN swapped');
+		}
+		
+
 		base_window.win_touch_p = {x:0,y:0};
 		
 		
 	});
+	
+	var home_button = Ti.UI.createButton({
+		title:'home',
+		center:{x:width *0.2,y:height *0.95},
+		width:width *0.15,
+		height:height *0.1,
+	});
+	
+	base_window.add(home_button);
+	
+	var list_button = Ti.UI.createButton({
+		title:'list',
+		center:{x:width*0.5,y:height *0.95},
+		width:width *0.15,
+		height:height*0.1,
+	});
+	
+	base_window.add(list_button);
+	
+	var people_button = Ti.UI.createButton({
+		title:'people',
+		center:{x:width*0.8,y:height *0.95},
+		width:width *0.15,
+		height:height *0.1,
+	});
+	
+	base_window.add(people_button);
 
 	
 	return base_window;
