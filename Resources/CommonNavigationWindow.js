@@ -26,11 +26,11 @@ exports.createCommonNavigationWindow = function(){
 	
 	var option_view = Titanium.UI.createView({
 		
-		backgroundColor:'gray',
-		width:Ti.UI.FILL,
-		height:height *0.9,
+		backgroundColor:'red',
+		width:width,
+		height:height,
 		
-		center:{x:width * -0.5,y:height *0.5},
+		center:{x:-0.5*width,y:0.5 *height},
 		
 	});
 	
@@ -47,7 +47,7 @@ exports.createCommonNavigationWindow = function(){
 		base_window.add(underRibbon);
 		
 	var upperRibbon = Titanium.UI.createImageView({
-			image:'/images/underRibbon/underRibbon2.png',
+			image:uiconfig.COMMON_UP_BAR_IMAGE_PATH,
 			width:width,
 			height:height *0.12,
 			top:-0.03 * height,
@@ -61,10 +61,10 @@ exports.createCommonNavigationWindow = function(){
 	
 	function moveOptionView(move){
 		if(move == 'open'){
-			option_view.animate({center:{x:width *0.45,y:height *0.5},duration:1000});
+			base_window.animate({center:{x:width *1.2,y:height *0.5},duration:uiconfig.OPT_VIEW_MOVE_ANIMATION_OPEN_DURING});
 		}
 		if(move == 'close'){
-			option_view.animate({center:{x:width * -0.5,y:height *0.5},duration:500});
+			base_window.animate({center:{x:width * 0.5,y:height *0.5},duration:uiconfig.OPT_VIEW_MOVE_ANIMATION_CLOSE_DURING});
 		}
 	}
 	
