@@ -1,9 +1,9 @@
-#appname: MangaView
-#appid: com.cyberagent.naitei14.manga.app
-#type: mobile
-#guid: 5dabcb2f-8858-48d6-9e2d-f1394fd62ba7
-#version: 1.0
-#publisher: not specified
-#url: not specified
-#image: appicon.png
-#desc: not specified
+#appname:MangaView
+#appid:com.cyberagent.app.manga
+#type:mobile
+#guid:5dabcb2f-8858-48d6-9e2d-f1394fd62ba7
+#version:1.0
+#publisher:fviAtt
+#url:http://
+#image:appicon.png
+#desc:not specified

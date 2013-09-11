@@ -23,3 +23,12 @@ exports.OPT_VIEW_MOVE_ANIMATION_CLOSE_DURING = 350;
  * 
  */
 exports.OPT_VIEW_FONTSIZE = 45;
+
+
+/*
+ * 画像ピッカーの画像パス
+ */
+
+exports.IMAGEPICK_DEFAULT_IMGPATH ='/images/icon/pallet_default.png';
+exports.IMAGEPICK_DEFAULT_PRESSED_IMGPATH = '/images/icon/pallet_default_pressed.png';
+
