@@ -15,7 +15,7 @@ exports.createCommonNavigationWindow = function(){
 	
 	var base_window = Titanium.UI.createWindow({
 		//backgroundImage : background_path,
-		backgroundColor : 'rgb(255,235,205)',
+		backgroundColor : 'gray',
 		exitOnClose : true,
 		fullscreen : true,
 		navBarHidden : true, //タイトルバーを隠す
@@ -23,19 +23,28 @@ exports.createCommonNavigationWindow = function(){
 		win_touch_p:{x:0,y:0}
 	});
 	
-	
-	var option_view = Titanium.UI.createView({
+	var option_tag = Ti.UI.createLabel({
+		text:'テストオプション項目',
+		width:width *0.5,
 		
-		backgroundColor:'red',
-		width:width,
-		height:height,
-		
-		center:{x:-0.5*width,y:0.5 *height},
-		
+		height:height *0.2,
+		center:{x:0.05*width,y:height *0.5},
+		font : {
+			fontSize : uiconfig.OPT_VIEW_FONTSIZE
+		}
 	});
 	
-	base_window.add(option_view);
+	base_window.add(option_tag);
 	
+	var base_view = Titanium.UI.createView({
+		backgroundColor : 'rgb(255,235,205)',
+		width:Ti.UI.FILL,
+		height:Ti.UI.FILL,
+	});
+	
+	base_window.add(base_view);
+	
+
 	
 	var underRibbon = Titanium.UI.createImageView({
 			image:'/images/underRibbon/underRibbon2.png',
@@ -44,7 +53,7 @@ exports.createCommonNavigationWindow = function(){
 			top:height *0.88
 	});
 	
-		base_window.add(underRibbon);
+		base_view.add(underRibbon);
 		
 	var upperRibbon = Titanium.UI.createImageView({
 			image:uiconfig.COMMON_UP_BAR_IMAGE_PATH,
@@ -54,32 +63,32 @@ exports.createCommonNavigationWindow = function(){
 			bottom:0.15 * height
 	});
 	
-		base_window.add(upperRibbon);
+		base_view.add(upperRibbon);
 		
 	base_window.upperRibbon = upperRibbon;
 	base_window.underRibbon = underRibbon;
 	
 	function moveOptionView(move){
 		if(move == 'open'){
-			base_window.animate({center:{x:width *1.2,y:height *0.5},duration:uiconfig.OPT_VIEW_MOVE_ANIMATION_OPEN_DURING});
+			base_view.animate({center:{x:width *1.2,y:height *0.5},duration:uiconfig.OPT_VIEW_MOVE_ANIMATION_OPEN_DURING});
 		}
 		if(move == 'close'){
-			base_window.animate({center:{x:width * 0.5,y:height *0.5},duration:uiconfig.OPT_VIEW_MOVE_ANIMATION_CLOSE_DURING});
+			base_view.animate({center:{x:width * 0.5,y:height *0.5},duration:uiconfig.OPT_VIEW_MOVE_ANIMATION_CLOSE_DURING});
 		}
 	}
 	
 	
 	var option_button = Ti.UI.createButton({
 		title:'opt',
-		center:{x:width *0.15,y:height * 0.05},
-		width:width *0.1,
-		height:height *0.05,
+		center:{x:width *0.1,y:height * 0.05},
+		width:width *0.15,
+		height:height *0.07,
 	});
 	
-	base_window.add(option_button);
+	base_view.add(option_button);
 	
 	option_button.addEventListener('click',function(event){
-		if(option_view.center.x < 0){
+		if(base_view.center.x == width *0.5){
 			moveOptionView('open');
 		}else{
 			moveOptionView('close');
@@ -92,13 +101,13 @@ exports.createCommonNavigationWindow = function(){
 	 * スワップのスタートポイントを記録し、話した時の差分からスワップ処理を行うか否かの判断を行う
 	 * 
 	 */
-	base_window.addEventListener('touchstart',function(event){
+	base_view.addEventListener('touchstart',function(event){
 		base_window.win_touch_p.x = event.x;
 		base_window.win_touch_p.y = event.y;
 		
 	});
 	
-	base_window.addEventListener('touchend',function(event){
+	base_view.addEventListener('touchend',function(event){
 		/*
 		 * 左右のスワップにおける差分から水平スワップを検出する
 		 */
@@ -137,7 +146,7 @@ exports.createCommonNavigationWindow = function(){
 		height:height *0.1,
 	});
 	
-	base_window.add(home_button);
+	base_view.add(home_button);
 	
 	var list_button = Ti.UI.createButton({
 		title:'list',
@@ -146,7 +155,7 @@ exports.createCommonNavigationWindow = function(){
 		height:height*0.1,
 	});
 	
-	base_window.add(list_button);
+	base_view.add(list_button);
 	
 	var people_button = Ti.UI.createButton({
 		title:'people',
@@ -155,7 +164,7 @@ exports.createCommonNavigationWindow = function(){
 		height:height *0.1,
 	});
 	
-	base_window.add(people_button);
+	base_view.add(people_button);
 
 	
 	return base_window;

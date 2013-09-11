@@ -16,4 +16,10 @@ exports.COMMON_UP_BAR_IMAGE_PATH = '/images/underRibbon/underRibbon2.png';
  * オプションビューの遷移アニメーションの所要時間（ミリ秒)
  */
 exports.OPT_VIEW_MOVE_ANIMATION_OPEN_DURING = 700;
-exports.OPT_VIEW_MOVE_ANIMATION_CLOSE_DURING = 700;
+exports.OPT_VIEW_MOVE_ANIMATION_CLOSE_DURING = 350;
+
+/*
+ * オプションビューの各要素のフォントサイズ
+ * 
+ */
+exports.OPT_VIEW_FONTSIZE = 45;
