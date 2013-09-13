@@ -23,18 +23,41 @@ exports.createCommonNavigationWindow = function(){
 		win_touch_p:{x:0,y:0}
 	});
 	
-	var option_tag = Ti.UI.createLabel({
-		text:'テストオプション項目',
+	var user_photo_web_view = Titanium.UI.createWebView({
+		height:height *0.25,
+		width:width *0.5,
+		url:'/user_image.html',
+		
+		center:{x:width *0.3,y:height *0.2},
+	});
+	
+	base_window.add(user_photo_web_view);
+
+	
+	var option_tags = Array(uiconfig.COUNT_OPTION);
+	
+	for(var cnt = 0;cnt < option_tags.length;cnt++){
+		option_tags[cnt] = Ti.UI.createLabel({
+		text:'オプション'+cnt,
 		width:width *0.5,
 		
 		height:height *0.2,
-		center:{x:0.05*width,y:height *0.5},
+		center:{x:0.3*width,y:height *0.4 + cnt *(0.15 * height)},
 		font : {
 			fontSize : uiconfig.OPT_VIEW_FONTSIZE
 		}
 	});
 	
-	base_window.add(option_tag);
+	option_tags[cnt].addEventListener('click',function(e){
+		alert('pushed option'+cnt);
+		Titanium.App.fireEvent('option'+cnt);
+		
+	});
+	
+	base_window.add(option_tags[cnt]);
+	}
+	
+	
 	
 	var base_view = Titanium.UI.createView({
 		backgroundColor : 'rgb(255,235,205)',
@@ -50,7 +73,7 @@ exports.createCommonNavigationWindow = function(){
 			image:'/images/underRibbon/underRibbon2.png',
 			width:Titanium.UI.FILL,
 			height:height *0.2,
-			top:height *0.88
+			top:uiconfig.COMMON_DOWN_BAR_TOP_AT,
 	});
 	
 		base_view.add(underRibbon);
@@ -59,8 +82,8 @@ exports.createCommonNavigationWindow = function(){
 			image:uiconfig.COMMON_UP_BAR_IMAGE_PATH,
 			width:width,
 			height:height *0.12,
-			top:-0.03 * height,
-			bottom:0.15 * height
+			top:uiconfig.COMMON_UP_BAR_TOP_AT,
+			bottom:uiconfig.COMMON_UP_BAR_BOTTOM_AT,
 	});
 	
 		base_view.add(upperRibbon);
@@ -95,8 +118,29 @@ exports.createCommonNavigationWindow = function(){
 		}
 	});
 	
-
+	var search_button = Ti.UI.createButton({
+		title:'眼鏡',
+		center:{x:width *0.9,y:height *0.05},
+		width:width *0.15,
+		height:height *0.07,
+	});
 	
+	base_view.add(search_button);
+	
+	var title_label = Ti.UI.createLabel({
+		text:'４コマちゃん',
+		font : {
+			fontSize : uiconfig.OPT_VIEW_FONTSIZE
+		},
+		width:width *0.5,
+		height:height *0.1,
+		textAlign:"center",
+		center:{x:width *0.5,y:height *0.05}
+	});
+	
+	base_view.add(title_label);
+	
+
 	/*
 	 * スワップのスタートポイントを記録し、話した時の差分からスワップ処理を行うか否かの判断を行う
 	 * 
@@ -142,8 +186,8 @@ exports.createCommonNavigationWindow = function(){
 	var home_button = Ti.UI.createButton({
 		title:'home',
 		center:{x:width *0.2,y:height *0.95},
-		width:width *0.15,
-		height:height *0.1,
+		width:uiconfig.COMMON_UNDER_BOTTON_WIDTH,
+		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT,
 	});
 	
 	base_view.add(home_button);
@@ -151,8 +195,8 @@ exports.createCommonNavigationWindow = function(){
 	var list_button = Ti.UI.createButton({
 		title:'list',
 		center:{x:width*0.5,y:height *0.95},
-		width:width *0.15,
-		height:height*0.1,
+		width:uiconfig.COMMON_UNDER_BOTTON_WIDTH,
+		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT,
 	});
 	
 	base_view.add(list_button);
@@ -160,8 +204,8 @@ exports.createCommonNavigationWindow = function(){
 	var people_button = Ti.UI.createButton({
 		title:'people',
 		center:{x:width*0.8,y:height *0.95},
-		width:width *0.15,
-		height:height *0.1,
+		width:uiconfig.COMMON_UNDER_BOTTON_WIDTH,
+		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT,
 	});
 	
 	base_view.add(people_button);
