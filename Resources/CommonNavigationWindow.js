@@ -15,47 +15,91 @@ exports.createCommonNavigationWindow = function(){
 	
 	var base_window = Titanium.UI.createWindow({
 		//backgroundImage : background_path,
-		backgroundColor : 'gray',
+		backgroundColor : 'rgb(51,73,96)',
 		exitOnClose : true,
 		fullscreen : true,
 		navBarHidden : true, //タイトルバーを隠す
 		orientationModes : [Titanium.UI.PORTRAIT],
 		win_touch_p:{x:0,y:0}
 	});
-	
+	/*
+	 * 今はサイズを固定しているが今後は端末の画面サイズに適応できるようにすること
+	 * TODO
+	 * 
+	 * 
+	 * 
+	 */
 	var user_photo_web_view = Titanium.UI.createWebView({
-		height:height *0.25,
-		width:width *0.5,
+		height:height *0.5,
+		width:width *0.65,
+		enableZoomControls:false,
+		backgroundColor:'rgb(51,73,96)',
+		touchEnabled:false,
+		horizontalWrap:true,
 		url:'/user_image.html',
 		
-		center:{x:width *0.3,y:height *0.2},
+		center:{x:width *0.35,y:height *0.27},
+	});
+	
+	user_photo_web_view.addEventListener('click',function(event){
+		alert('stub user_image_click');
 	});
 	
 	base_window.add(user_photo_web_view);
-
+	
+	var edit_option_button = Ti.UI.createButton({
+		title:'鉛筆',
+		center:{x:width *0.1,y:height *0.05},
+		width:width *0.15,
+		height:height *0.07,
+	});
+	
+	edit_option_button.addEventListener('click',function(event){
+		alert('編集画面に行く');
+	});
+	base_window.add(edit_option_button);
+	
+	var option_username_label = Ti.UI.createLabel({
+			text:'ユーザー名:test',
+			width:width *0.5,
+			height:height *0.2,
+			center:{x:0.4*width,y:height *0.4},
+			font : {
+				fontSize : 28
+			}
+		});
+		
+	base_window.add(option_username_label);
 	
 	var option_tags = Array(uiconfig.COUNT_OPTION);
-	
-	for(var cnt = 0;cnt < option_tags.length;cnt++){
-		option_tags[cnt] = Ti.UI.createLabel({
-		text:'オプション'+cnt,
-		width:width *0.5,
+	/*
+	 * for文の場合値のスコープが変になるので再帰で書いておきました
+	 * 
+	 */
+	function createOptionTags(cnt){
+		if(cnt >= uiconfig.COUNT_OPTION)
+			return;
+		var tag = Ti.UI.createLabel({
+			text:'オプション'+cnt,
+			width:width *0.5,
+			height:height *0.2,
+			center:{x:0.3*width,y:height *0.5 + cnt *uiconfig.OPT_VIEW_TAG_HEIGHT},
+			font : {
+				fontSize : uiconfig.OPT_VIEW_FONTSIZE
+			}
+		});
+		tag.addEventListener('click',function(e){
+			alert('pushed option'+cnt);
+			Titanium.App.fireEvent('option'+cnt);
 		
-		height:height *0.2,
-		center:{x:0.3*width,y:height *0.4 + cnt *(0.15 * height)},
-		font : {
-			fontSize : uiconfig.OPT_VIEW_FONTSIZE
-		}
-	});
-	
-	option_tags[cnt].addEventListener('click',function(e){
-		alert('pushed option'+cnt);
-		Titanium.App.fireEvent('option'+cnt);
+		});
+		base_window.add(tag);
+		option_tags[cnt] = tag;
 		
-	});
-	
-	base_window.add(option_tags[cnt]);
+		createOptionTags(cnt +1);
 	}
+	
+	createOptionTags(0);
 	
 	
 	
@@ -63,11 +107,77 @@ exports.createCommonNavigationWindow = function(){
 		backgroundColor : 'rgb(255,235,205)',
 		width:Ti.UI.FILL,
 		height:Ti.UI.FILL,
+		center:{x:width *0.5,y:height *0.5},
 	});
 	
 	base_window.add(base_view);
 	
 
+	
+	var main_scroll_base_view = Ti.UI.createView({
+		width:Ti.UI.FILL,
+		height:2000,
+		backgroundColor:'rgb(255,235,205)',
+	});
+	
+	var scroll_view  = Ti.UI.createScrollView({
+  		contentWidth: 'auto',
+  		contentHeight: 'auto',
+  		showVerticalScrollIndicator: false,
+  		showHorizontalScrollIndicator: false,
+  		height: '80%',
+  		width: Ti.UI.FILL,
+  		top:height *0.07,
+	});
+	
+	scroll_view.add(main_scroll_base_view);
+	base_view.add(scroll_view);
+		
+	//ボタンセクションのスワイプ呼び出し
+	var theme_buttons_view = Ti.UI.createView({
+		width:Ti.UI.FILL,
+		height:height *0.15,
+		backgroundColor:'gray',
+		top:0,
+	});
+	
+	main_scroll_base_view.add(theme_buttons_view);
+	
+	var main_web_view = Titanium.UI.createWebView({
+		height:1000,
+		width:Ti.UI.FILL,
+		enableZoomControls:true,
+		backgroundColor:'rgb(255,235,205)',
+		touchEnabled:true,
+		horizontalWrap:true,
+		url:'/main.html',
+		
+		top:height *0.15,
+	});
+	
+	main_scroll_base_view.add(main_web_view);
+	
+	var theme_buttons = new Array(4);
+	function createThemeButtons(cnt){
+		if(cnt >= 4)
+			return;
+			
+		var theme_btn = Ti.UI.createButton({
+			title:'テーマ'+cnt,
+			width:width *0.2,
+			height:theme_buttons_view.height * 0.8,
+			top:theme_buttons_view.height *0.21,
+			left:(0.05 +(cnt *0.23))*width,
+		});
+		
+		theme_buttons[cnt] = theme_btn;
+		theme_buttons_view.add(theme_btn);
+		
+		createThemeButtons(cnt +1);
+		
+	}
+	
+	createThemeButtons(0);
 	
 	var underRibbon = Titanium.UI.createImageView({
 			image:'/images/underRibbon/underRibbon2.png',
@@ -125,6 +235,10 @@ exports.createCommonNavigationWindow = function(){
 		height:height *0.07,
 	});
 	
+	search_button.addEventListener('click',function(event){
+		require('/SearchWin').openSearchWindow();
+	});
+	
 	base_view.add(search_button);
 	
 	var title_label = Ti.UI.createLabel({
@@ -155,12 +269,12 @@ exports.createCommonNavigationWindow = function(){
 		/*
 		 * 左右のスワップにおける差分から水平スワップを検出する
 		 */
-		if(event.x - base_window.win_touch_p.x > width *0.3){
-			moveOptionView('open');
+		if(event.x - base_window.win_touch_p.x > width *0.6){
+			//moveOptionView('open');
 			//option_view.center = {x:width *0.45,y:height *0.5};	
 		}
 		
-		if(base_window.win_touch_p.x - event.x > width *0.3){
+		if(base_window.win_touch_p.x - event.x > width *0.6){
 			
 			moveOptionView('close');
 			//option_view.center = {x:width * -0.5,y:height *0.5};
@@ -170,11 +284,13 @@ exports.createCommonNavigationWindow = function(){
 		 * 上下のスワップにおける差分から鉛直スワップを検出する
 		 */
 		if(event.y- base_window.win_touch_p.y > height *0.3){
-			alert('up swapped');
+			
+			//theme_buttons_view.animate({top:0.07*height,duration:200});
 		}
 		
 		if(base_window.win_touch_p.y - event.y > height *0.3){
-			alert('up UN swapped');
+			
+			//theme_buttons_view.animate({top:-0.3*height,duration:200});
 		}
 		
 
@@ -216,8 +332,14 @@ exports.createCommonNavigationWindow = function(){
 	 * ここからビューの中身を定義
 	 */
 	
-	var addImageButton= new require('/UsingMedia/imageFrame/MenuProjectFrame')();
-	base_view.add(addImageButton);
+	/*
+	 * 画像ピッカーを表示するためのスニペット
+	 * 
+		var addImageButton= new require('/UsingMedia/imageFrame/MenuProjectFrame')();
+		base_view.add(addImageButton);
+	*/
+
+	
 
 
 	
