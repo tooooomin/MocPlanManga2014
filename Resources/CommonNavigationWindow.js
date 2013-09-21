@@ -101,7 +101,7 @@ exports.createCommonNavigationWindow = function(){
 		base_window.add(tag);
 		option_tags[cnt] = tag;
 		
-		createOptionTags(cnt +1);
+		createOptionTags(cnt + 1);
 		
 		option_tags[0].setText("Likes");
 		option_tags[1].setText("messages");
@@ -109,45 +109,7 @@ exports.createCommonNavigationWindow = function(){
 		option_tags[3].setText("Follower");
 		option_tags[4].setText("Config");
 	}
-/*
-	function createOptionTags(cnt){
-		if(cnt >= uiconfig.COUNT_OPTION)
-			return;
-			
-		seitch(cnt){
-			case 0:
-				var title = "Likes";
-				break;
-			case 1:
-				var title = "message";
-				break;
-			case 2:
-				var title = "Following";
-				break;
-			case 3:
-				var title = "Follower";
-				break;
-			case 4:
-				var title = "Configur"
-			
-		var tag = Ti.UI.createLabel({
-			text:'オプション'+cnt,
-			width:width *0.5,
-			height:height *0.2,
-			center:{x:0.3*width,y:height *0.5 + cnt *uiconfig.OPT_VIEW_TAG_HEIGHT},
-			font : {
-				fontSize : uiconfig.OPT_VIEW_FONTSIZE
-			}
-		});
-		tag.addEventListener('click',function(e){
-			alert('pushed option'+cnt);
-			Titanium.App.fireEvent('option'+cnt);
-		
-		});
-		base_window.add(tag);
-		option_tags[cnt] = tag;
-*/
-	
+
 	createOptionTags(0);
 
 	
