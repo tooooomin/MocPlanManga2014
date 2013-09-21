@@ -144,13 +144,13 @@ exports.createCommonNavigationWindow = function(){
 	main_scroll_base_view.add(theme_buttons_view);
 	
 	var main_web_view = Titanium.UI.createWebView({
-		height:1000,
+		height:2000,
 		width:Ti.UI.FILL,
 		enableZoomControls:true,
 		backgroundColor:'rgb(255,235,205)',
 		touchEnabled:true,
 		horizontalWrap:true,
-		url:'/main.html',
+		url:'/HTML/4cora_top.html',
 		
 		top:height *0.15,
 	});
