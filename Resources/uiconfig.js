@@ -45,7 +45,7 @@ exports.OPT_VIEW_FONTSIZE = 45;
 /*
  * オプションの内部におけるタブの要素数
  */
-exports.COUNT_OPTION = 4;
+exports.COUNT_OPTION = 5;
 
 /*
  * オプションの内部選択タグの高さ（height)に関する設定
@@ -57,7 +57,7 @@ exports.OPT_VIEW_TAG_HEIGHT = height *0.1;
  * 下のホームボタンなどのサイズに関する定義
  */
 exports.COMMON_UNDER_BOTTON_HEIGHT = height *0.1;
-exports.COMMON_UNDER_BOTTON_WIDTH  = width *0.15;
+exports.COMMON_UNDER_BOTTON_WIDTH  = width /3; //ボタンは3つなので幅の1/3にしました
 
 
 /*

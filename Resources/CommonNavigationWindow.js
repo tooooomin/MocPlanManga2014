@@ -29,6 +29,7 @@ exports.createCommonNavigationWindow = function() {
 	 * 
 	 * 
 	 */
+	/* サブヘッダのユーザ画像 */
 	var user_photo_web_view = Titanium.UI.createWebView({
 		height:height *0.5,
 		width:width *0.65,
@@ -47,18 +48,6 @@ exports.createCommonNavigationWindow = function() {
 	
 	base_window.add(user_photo_web_view);
 	
-	var edit_option_button = Ti.UI.createButton({
-		title:'鉛筆',
-		center:{x:width *0.1,y:height *0.05},
-		width:width *0.15,
-		height:height *0.07,
-	});
-	
-	edit_option_button.addEventListener('click',function(event){
-		alert('編集画面に行く');
-	});
-	base_window.add(edit_option_button);
-	
 	var option_username_label = Ti.UI.createLabel({
 			text:'ユーザー名:test',
 			width:width *0.5,
@@ -72,37 +61,82 @@ exports.createCommonNavigationWindow = function() {
 	base_window.add(option_username_label);
 	
 	var option_tags = Array(uiconfig.COUNT_OPTION);
+
 	/*
 	 * for文の場合値のスコープが変になるので再帰で書いておきました
 	 * 
 	 */
+	
+
 	function createOptionTags(cnt){
 		if(cnt >= uiconfig.COUNT_OPTION)
 			return;
 		var tag = Ti.UI.createLabel({
-			text:'オプション'+cnt,
+			//text:'オプション'+cnt,
 			width:width *0.5,
-			height:height *0.2,
+			height:uiconfig.OPT_VIEW_TAG_HEIGHT,
 			center:{x:0.3*width,y:height *0.5 + cnt *uiconfig.OPT_VIEW_TAG_HEIGHT},
 			font : {
 				fontSize : uiconfig.OPT_VIEW_FONTSIZE
 			}
 		});
+		/*
 		tag.addEventListener('click',function(e){
 			alert('pushed option'+cnt);
 			Titanium.App.fireEvent('option'+cnt);
 		
 		});
+		*/
 		base_window.add(tag);
 		option_tags[cnt] = tag;
 		
-		createOptionTags(cnt +1);
+		createOptionTags(cnt + 1);
+		
+		option_tags[0].setText("Likes");
+		option_tags[1].setText("messages");
+		option_tags[2].setText("Following");
+		option_tags[3].setText("Follower");
+		option_tags[4].setText("Config");
 	}
-	
+
 	createOptionTags(0);
+
 	
-	
-	
+		option_tags[0].addEventListener('click',function(e){
+			/*
+			alert('pushed option 0');
+			Titanium.App.fireEvent('option 0');
+			*/
+			require("/likesWindow").LikesWindow().open();
+		
+		});
+
+		option_tags[1].addEventListener('click',function(e){
+			//alert('pushed option 1');
+			//Titanium.App.fireEvent('option 1');
+			require("/MessagesWindow").MessagesWindow().open();
+		
+		});
+
+		option_tags[2].addEventListener('click',function(e){
+			//alert('pushed option 2');
+			//Titanium.App.fireEvent('option 2');
+			require("/FollowingWindow").FollowingWindow().open();
+		});
+
+		option_tags[3].addEventListener('click',function(e){
+			//alert('pushed option 3');
+			//Titanium.App.fireEvent('option 3');
+			require("/FollowerWindow").FollowerWindow().open();
+		});
+
+		option_tags[4].addEventListener('click',function(e){
+			//alert('pushed option 4');
+			//Titanium.App.fireEvent('option 4');
+			require("/ConfigWindow").ConfigWindow().open();
+		});
+
+
 	var base_view = Titanium.UI.createView({
 		backgroundColor : 'rgb(255,235,205)',
 		width:Ti.UI.FILL,
@@ -133,15 +167,6 @@ exports.createCommonNavigationWindow = function() {
 	scroll_view.add(main_scroll_base_view);
 	base_view.add(scroll_view);
 		
-	//ボタンセクションのスワイプ呼び出し
-	var theme_buttons_view = Ti.UI.createView({
-		width:Ti.UI.FILL,
-		height:height *0.15,
-		backgroundColor:'gray',
-		top:0,
-	});
-	
-	main_scroll_base_view.add(theme_buttons_view);
 	
 	var main_web_view = Titanium.UI.createWebView({
 		height:2000,
@@ -152,32 +177,13 @@ exports.createCommonNavigationWindow = function() {
 		horizontalWrap:true,
 		url:'/HTML/4cora_top.html',
 		
-		top:height *0.15,
+		//top:height *0.15,
+		top: 0
 	});
 	
 	main_scroll_base_view.add(main_web_view);
 	
 	var theme_buttons = new Array(4);
-	function createThemeButtons(cnt){
-		if(cnt >= 4)
-			return;
-			
-		var theme_btn = Ti.UI.createButton({
-			title:'テーマ'+cnt,
-			width:width *0.2,
-			height:theme_buttons_view.height * 0.8,
-			top:theme_buttons_view.height *0.21,
-			left:(0.05 +(cnt *0.23))*width,
-		});
-		
-		theme_buttons[cnt] = theme_btn;
-		theme_buttons_view.add(theme_btn);
-		
-		createThemeButtons(cnt +1);
-		
-	}
-	
-	createThemeButtons(0);
 	
 	var underRibbon = Titanium.UI.createImageView({
 			image:'/images/underRibbon/underRibbon2.png',
@@ -197,6 +203,44 @@ exports.createCommonNavigationWindow = function() {
 	});
 	
 		base_view.add(upperRibbon);
+		
+	var theme_buttons_view = Ti.UI.createView({
+		width:Ti.UI.FILL,
+		height:height *0.08,
+		backgroundColor:'gray',
+		top:uiconfig.COMMON_UP_BAR_TOP_AT + height*0.12,
+	});
+	
+	base_view.add(theme_buttons_view);
+	
+	main_web_view.top = theme_buttons_view.height;
+	
+		function createThemeButtons(cnt){
+		if(cnt >= 4)
+			return;
+		
+		var theme_btn = Ti.UI.createButton({
+			width:width /4, //*0.2
+			height:theme_buttons_view.height * 0.8,
+			top:theme_buttons_view.height *0.21,
+			left:(0.05 +(cnt *0.23))*width,
+		});
+		
+		theme_buttons[cnt] = theme_btn;
+		theme_buttons_view.add(theme_btn);
+		
+		createThemeButtons(cnt +1);
+		
+		theme_buttons[0].setTitle("新着");
+		theme_buttons[1].setTitle("人気");
+		theme_buttons[2].setTitle("コメント");
+		theme_buttons[3].setTitle("未完成");
+	}
+
+	
+	createThemeButtons(0);
+
+
 		
 	base_window.upperRibbon = upperRibbon;
 	base_window.underRibbon = underRibbon;
@@ -301,7 +345,8 @@ exports.createCommonNavigationWindow = function() {
 	
 	var home_button = Ti.UI.createButton({
 		title:'home',
-		center:{x:width *0.2,y:height *0.95},
+		center:{/*x:width *0.2,*/y:height *0.95},
+		left: 10,
 		width:uiconfig.COMMON_UNDER_BOTTON_WIDTH,
 		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT,
 	});
@@ -309,17 +354,22 @@ exports.createCommonNavigationWindow = function() {
 	base_view.add(home_button);
 	
 	var list_button = Ti.UI.createButton({
-		title:'list',
+		title:'作る',
 		center:{x:width*0.5,y:height *0.95},
 		width:uiconfig.COMMON_UNDER_BOTTON_WIDTH,
 		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT,
 	});
 	
+	list_button.addEventListener("click",function(){
+		require("/CreateNewMangaWindow").CreateNewMangaWindow().open();
+	});
+	
 	base_view.add(list_button);
 	
 	var people_button = Ti.UI.createButton({
-		title:'people',
-		center:{x:width*0.8,y:height *0.95},
+		title:'素材',
+		center:{/*x:width*0.8,*/y:height *0.95},
+		right: 10,
 		width:uiconfig.COMMON_UNDER_BOTTON_WIDTH,
 		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT,
 	});
