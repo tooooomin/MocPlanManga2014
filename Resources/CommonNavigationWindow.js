@@ -89,7 +89,7 @@ exports.createCommonNavigationWindow = function(){
 		base_window.add(tag);
 		option_tags[cnt] = tag;
 		
-		createOptionTags(cnt +1);
+		createOptionTags(cnt + 1);
 		
 		option_tags[0].setText("Likes");
 		option_tags[1].setText("messages");
@@ -99,6 +99,7 @@ exports.createCommonNavigationWindow = function(){
 	}
 
 	createOptionTags(0);
+<<<<<<< HEAD
 	
 		option_tags[0].addEventListener('click',function(e){
 			alert('pushed option 0');
@@ -111,6 +112,8 @@ exports.createCommonNavigationWindow = function(){
 			Titanium.App.fireEvent('option 1');
 		
 		});
+=======
+>>>>>>> c72ccaa51460cf25fb3ca01beb992f38b35312c7
 
 		option_tags[2].addEventListener('click',function(e){
 			alert('pushed option 2');
@@ -351,6 +354,10 @@ exports.createCommonNavigationWindow = function(){
 		center:{x:width*0.5,y:height *0.95},
 		width:uiconfig.COMMON_UNDER_BOTTON_WIDTH,
 		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT,
+	});
+	
+	list_button.addEventListener("click",function(){
+		require("/CreateNewMangaWindow").CreateNewMangaWindow().open();
 	});
 	
 	base_view.add(list_button);
