@@ -45,7 +45,7 @@ exports.OPT_VIEW_FONTSIZE = 45;
 /*
  * オプションの内部におけるタブの要素数
  */
-exports.COUNT_OPTION = 4;
+exports.COUNT_OPTION = 5;
 
 /*
  * オプションの内部選択タグの高さ（height)に関する設定
