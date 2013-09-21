@@ -430,6 +430,10 @@ exports.createCommonNavigationWindow = function(){
 		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT,
 	});
 	
+	list_button.addEventListener("click",function(){
+		require("/CreateNewMangaWindow").CreateNewMangaWindow().open();
+	});
+	
 	base_view.add(list_button);
 	
 	var people_button = Ti.UI.createButton({
