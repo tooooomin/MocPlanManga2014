@@ -8,7 +8,7 @@
  * 
  */
 
-exports.createCommonNavigationWindow = function(){
+exports.createCommonNavigationWindow = function() {
 	var uiconfig = require('/uiconfig');
 	height = Ti.Platform.displayCaps.platformHeight, width = Ti.Platform.displayCaps.platformWidth;
 	
