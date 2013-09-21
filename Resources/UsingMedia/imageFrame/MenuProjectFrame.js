@@ -6,18 +6,20 @@
  * renewal at 2012 1011
  */
 function MenuProjectFrame() {
+	var uiconfig = require('/uiconfig');
+	
 	height = Ti.Platform.displayCaps.platformHeight, width = Ti.Platform.displayCaps.platformWidth;
 	var self = Titanium.UI.createImageView({
 		width : 'auto',
 		height :height * 0.2,
-		image:'/images/icon/pallet_default.png',
+		image:uiconfig.IMAGEPICK_DEFAULT_IMGPATH,//'/images/icon/pallet_default.png',
 	});
 
 	//接触を検知したときの処理実装部分
 
 	self.addEventListener('click', function() {
 		
-		self.setImage('/images/icon/pallet_default_pressed.png')
+		self.setImage(uiconfig.IMAGEPICK_DEFAULT_PRESSED_IMGPATH);
 		
 		var dialog = Titanium.UI.createOptionDialog({
 			title : 'マッチする画像を選びましょう',
