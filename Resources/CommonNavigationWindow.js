@@ -339,7 +339,7 @@ exports.createCommonNavigationWindow = function(){
 		base_view.add(addImageButton);
 	*/
 
-	
+
 
 
 	
