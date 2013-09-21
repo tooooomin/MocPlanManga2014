@@ -29,6 +29,7 @@ exports.createCommonNavigationWindow = function(){
 	 * 
 	 * 
 	 */
+	/* サブヘッダのユーザ画像 */
 	var user_photo_web_view = Titanium.UI.createWebView({
 		height:height *0.5,
 		width:width *0.65,
@@ -66,7 +67,7 @@ exports.createCommonNavigationWindow = function(){
 	 * 
 	 */
 	
-// CENTER_WIDTH, CENTER_HEIGHT, 
+
 	function createOptionTags(cnt){
 		if(cnt >= uiconfig.COUNT_OPTION)
 			return;
@@ -99,38 +100,40 @@ exports.createCommonNavigationWindow = function(){
 	}
 
 	createOptionTags(0);
-<<<<<<< HEAD
+
 	
 		option_tags[0].addEventListener('click',function(e){
+			/*
 			alert('pushed option 0');
 			Titanium.App.fireEvent('option 0');
+			*/
+			require("/likesWindow").LikesWindow().open();
 		
 		});
 
 		option_tags[1].addEventListener('click',function(e){
-			alert('pushed option 1');
-			Titanium.App.fireEvent('option 1');
+			//alert('pushed option 1');
+			//Titanium.App.fireEvent('option 1');
+			require("/MessagesWindow").MessagesWindow().open();
 		
 		});
-=======
->>>>>>> c72ccaa51460cf25fb3ca01beb992f38b35312c7
 
 		option_tags[2].addEventListener('click',function(e){
-			alert('pushed option 2');
-			Titanium.App.fireEvent('option 2');
-		
+			//alert('pushed option 2');
+			//Titanium.App.fireEvent('option 2');
+			require("/FollowingWindow").FollowingWindow().open();
 		});
 
 		option_tags[3].addEventListener('click',function(e){
-			alert('pushed option 3');
-			Titanium.App.fireEvent('option 3');
-		
+			//alert('pushed option 3');
+			//Titanium.App.fireEvent('option 3');
+			require("/FollowerWindow").FollowerWindow().open();
 		});
 
 		option_tags[4].addEventListener('click',function(e){
-			alert('pushed option 4');
-			Titanium.App.fireEvent('option 4');
-		
+			//alert('pushed option 4');
+			//Titanium.App.fireEvent('option 4');
+			require("/ConfigWindow").ConfigWindow().open();
 		});
 
 
@@ -217,7 +220,7 @@ exports.createCommonNavigationWindow = function(){
 			return;
 		
 		var theme_btn = Ti.UI.createButton({
-			width:width *0.2,
+			width:width /4, //*0.2
 			height:theme_buttons_view.height * 0.8,
 			top:theme_buttons_view.height *0.21,
 			left:(0.05 +(cnt *0.23))*width,
@@ -342,7 +345,8 @@ exports.createCommonNavigationWindow = function(){
 	
 	var home_button = Ti.UI.createButton({
 		title:'home',
-		center:{x:width *0.2,y:height *0.95},
+		center:{/*x:width *0.2,*/y:height *0.95},
+		left: 10,
 		width:uiconfig.COMMON_UNDER_BOTTON_WIDTH,
 		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT,
 	});
@@ -364,7 +368,8 @@ exports.createCommonNavigationWindow = function(){
 	
 	var people_button = Ti.UI.createButton({
 		title:'素材',
-		center:{x:width*0.8,y:height *0.95},
+		center:{/*x:width*0.8,*/y:height *0.95},
+		right: 10,
 		width:uiconfig.COMMON_UNDER_BOTTON_WIDTH,
 		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT,
 	});
