@@ -9,25 +9,33 @@ exports.LikesWindow = function() {
 	height = Ti.Platform.displayCaps.platformHeight, width = Ti.Platform.displayCaps.platformWidth;
 	var base_window = Titanium.UI.createWindow({
 		//backgroundImage : background_path,
-		backgroundColor : 'rgb(51,73,96)',
+		backgroundColor : 'red',
 		exitOnClose : false,
 		fullscreen : true,
 		navBarHidden : true, //タイトルバーを隠す
 		orientationModes : [Titanium.UI.PORTRAIT],
 	});
 
-var view = Ti.UI.createView();
+	var view = Ti.UI.createView();
 
 	var label_tmp = Ti.UI.createLabel({
-		text: 'Likesからの遷移です。',
-					width:width *0.5,
-			height:height *0.9,
+		text: 'Likesからの遷移です!!!!!!!',
+		color: 'blue',
+			width:width *0.3,
+			height:height *0.3,
+			top: height *0.2,
 			font : {
 				fontSize : 28
 			}
 	});
+	var testlabel = require('CreateCommonParts').createTestLabel();
 	view.add(label_tmp);
+	
+	var upperRibbon = require('/CreateCommonParts').createUpperRibbon();
+	view.add(testlabel);
 	base_window.add(view);
+	base_window.add(upperRibbon);
+	base_window.upperRibbon = upperRibbon;
 
 	return base_window;
 };
