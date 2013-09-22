@@ -329,8 +329,7 @@ exports.createCommonNavigationWindow = function(){
 	});
 	
 	base_view.add(people_button);
-	
-	
+
 	/*
 	 * 
 	 * ここからビューの中身を定義
@@ -342,10 +341,7 @@ exports.createCommonNavigationWindow = function(){
 		var addImageButton= new require('/UsingMedia/imageFrame/MenuProjectFrame')();
 		base_view.add(addImageButton);
 	*/
-
 	
-
-
 	
 	return base_window;
 };
