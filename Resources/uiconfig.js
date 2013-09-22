@@ -8,17 +8,69 @@
  */
 height = Ti.Platform.displayCaps.platformHeight, width = Ti.Platform.displayCaps.platformWidth;
 
+/*
+ * Galaxy NEXUS の画面サイズ
+ */
+exports.ACTUAL_HEIGHT = 1280;
+exports.ACTUAL_WIDTH = 720;
 
 /*
  * 共通フレームの上のリボンイメージ
  */
-exports.COMMON_UP_BAR_IMAGE_PATH = '/images/underRibbon/underRibbon2.png';
+//exports.COMMON_UP_BAR_IMAGE_PATH = '/images/underRibbon/underRibbon2.png';
+exports.COMMON_UP_BAR_IMAGE_PATH = '/images/header/header_bg(720,100).png';
+
+/*
+ * ヘッダのリボンの高さ
+ */
+exports.HEADER_RIBBON_HEIGHT = height *(100/1280);
+
+/*
+ * Galaxy NEXUSのやつ
+ */
+//exports.HEADER_RIBBON_HEIGHT = 100;
+
+/*
+ * タイトルラベルの大きさ
+ */
+exports.TITLE_WIDTH = width *(175/720);
+exports.TITLE_HEIGHT = height *(43/1280);
+//exports.TITLE_WIDTH = 175;
+//exports.TITLE_HEIGHT = 43;
+
+/*
+ * サーチボタンとオプションボタンの大きさ
+ */
+exports.SEARCH_BUTTON_WIDTH = width *(62/720);
+exports.SEARCH_BUTTON_HEIGHT = height *(62/1280);
+//exports.SEARCH_BUTTON_WIDTH = 62;
+//exports.SEARCH_BUTTON_HEIGHT = 62;
+
+exports.OPTION_BUTTON_WIDTH = width *(50/720);
+exports.OPTION_BUTTON_HEIGHT = height *(42/1280);
+//exports.OPTION_BUTTON_WIDTH = 50;
+//exports.OPTION_BUTTON_HEIGHT = 42;
+
+/*
+ * テーマボタン（今はテーマじゃないけど）大きさ
+ */
+exports.THEME_BUTTON_WIDTH = width *(178/720);
+exports.THEME_BUTTON_HEIGHT = height *(83/1280);
+//exports.THEME_BUTTON_WIDTH = 178
+//exports.THEME_BUTTON_HEIGHT = 83;
+
 
 /*
  * 共通フレームの上のリボンのtopの位置を設定
  * 
  */
 exports.COMMON_UP_BAR_TOP_AT = -0.03 * height;
+
+/*
+ * ヘッダの下のやつの大きさ
+ */
+exports.HEADER_UNDER_HEIGHT = height *(87/1280);
+
 /*
  * 共通フレームの上のリボンがどれだけ下にせり出すか bottom:の設定
  * 
@@ -56,8 +108,17 @@ exports.OPT_VIEW_TAG_HEIGHT = height *0.1;
 /*
  * 下のホームボタンなどのサイズに関する定義
  */
-exports.COMMON_UNDER_BOTTON_HEIGHT = height *0.1;
-exports.COMMON_UNDER_BOTTON_WIDTH  = width /3; //ボタンは3つなので幅の1/3にしました
+
+/*
+ * ボタンのサイズ、機種に合わせるやつ
+ */
+exports.COMMON_UNDER_BOTTON_HEIGHT = height *(97/1280);
+exports.COMMON_UNDER_BOTTON_WIDTH  = width *(239/720); 
+/*
+ * Galaxy NEXUSのやつ
+ */
+//exports.COMMON_UNDER_BOTTON_HEIGHT = 97;
+//exports.COMMON_UNDER_BOTTON_WIDTH  = 239; 
 
 
 /*

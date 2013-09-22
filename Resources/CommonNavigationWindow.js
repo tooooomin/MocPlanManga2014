@@ -106,6 +106,7 @@ exports.createCommonNavigationWindow = function(){
 	
 		option_tags[0].addEventListener('click',function(e){
 
+
 			require("/OptionWindows/LikesWindow").openLikesWindow().open();
 		
 		});
@@ -129,6 +130,7 @@ exports.createCommonNavigationWindow = function(){
 		option_tags[4].addEventListener('click',function(e){
 
 			require("/OptionWindows/ConfigWindow").openConfigWindow().open();
+
 		});
 
 
@@ -154,7 +156,7 @@ exports.createCommonNavigationWindow = function(){
   		contentHeight: 'auto',
   		showVerticalScrollIndicator: false,
   		showHorizontalScrollIndicator: false,
-  		height: '80%',
+  		bottom: uiconfig.COMMON_UNDER_BOTTON_HEIGHT, //フッタのボタンの大きさに合わせる
   		width: Ti.UI.FILL,
   		top:height *0.07,
 	});
@@ -179,63 +181,115 @@ exports.createCommonNavigationWindow = function(){
 	
 	main_scroll_base_view.add(main_web_view);
 	
-	var theme_buttons = new Array(4);
-	
 	var underRibbon = Titanium.UI.createImageView({
-			image:'/images/underRibbon/underRibbon2.png',
+			image: '/images/footer/footer_bg(720,99).png',
 			width:Titanium.UI.FILL,
-			height:height *0.2,
-			top:uiconfig.COMMON_DOWN_BAR_TOP_AT,
+			//height: 99,
+			height: height *(99/uiconfig.ACTUAL_HEIGHT),
+			bottom: 0
 	});
 	
 		base_view.add(underRibbon);
 		
 	var upperRibbon = Titanium.UI.createImageView({
 			image:uiconfig.COMMON_UP_BAR_IMAGE_PATH,
-			width:width,
-			height:height *0.12,
-			top:uiconfig.COMMON_UP_BAR_TOP_AT,
-			bottom:uiconfig.COMMON_UP_BAR_BOTTOM_AT,
+			width: Ti.UI.FILL,
+			height: uiconfig.HEADER_RIBBON_HEIGHT,
+			top: 0,
 	});
 	
 		base_view.add(upperRibbon);
 		
 	var theme_buttons_view = Ti.UI.createView({
+		backgroundImage: '/images/header_under/next_header_bg(720,87).png',
 		width:Ti.UI.FILL,
-		height:height *0.08,
-		backgroundColor:'gray',
-		top:uiconfig.COMMON_UP_BAR_TOP_AT + height*0.12,
+		height: uiconfig.HEADER_UNDER_HEIGHT,
+		top: upperRibbon.height
 	});
 	
 	base_view.add(theme_buttons_view);
 	
 	main_web_view.top = theme_buttons_view.height;
+
+/*
+ * ヘッダの下のボタン（テーマボタンだったもの）の宣言とviewへの追加
+ */
 	
+	var header_new_button = Ti.UI.createButton({
+		backgroundImage: '/images/header_under/header_btn1(178,83).png',
+		top: (uiconfig.HEADER_UNDER_HEIGHT - uiconfig.THEME_BUTTON_HEIGHT) *1.5,
+		left: (width -uiconfig.THEME_BUTTON_WIDTH *4) *0.2,
+		width: uiconfig.THEME_BUTTON_WIDTH,
+		height:uiconfig.THEME_BUTTON_HEIGHT
+	});
+	
+	theme_buttons_view.add(header_new_button);
+	
+	var header_popularity_button = Ti.UI.createButton({
+		backgroundImage: '/images/header_under/header_btn2(178,83).png',
+		top: (uiconfig.HEADER_UNDER_HEIGHT - uiconfig.THEME_BUTTON_HEIGHT) *1.5,
+		left: uiconfig.THEME_BUTTON_WIDTH +(width -uiconfig.THEME_BUTTON_WIDTH *4) *0.4,
+		width: uiconfig.THEME_BUTTON_WIDTH,
+		height:uiconfig.THEME_BUTTON_HEIGHT
+	});
+	
+	theme_buttons_view.add(header_popularity_button);
+	
+	var header_comment_button = Ti.UI.createButton({
+		backgroundImage: '/images/header_under/header_btn3(178,83).png',
+		top: (uiconfig.HEADER_UNDER_HEIGHT - uiconfig.THEME_BUTTON_HEIGHT) *1.5,
+		right:uiconfig.THEME_BUTTON_WIDTH + (width -uiconfig.THEME_BUTTON_WIDTH *4) *0.4,
+		width: uiconfig.THEME_BUTTON_WIDTH,
+		height:uiconfig.THEME_BUTTON_HEIGHT
+	});
+	
+	theme_buttons_view.add(header_comment_button);
+
+	var header_template_button = Ti.UI.createButton({
+		backgroundImage: '/images/header_under/header_btn4(179,83).png',
+		top: (uiconfig.HEADER_UNDER_HEIGHT - uiconfig.THEME_BUTTON_HEIGHT) *1.5,
+		right: (width -uiconfig.THEME_BUTTON_WIDTH *4) *0.2,
+		width: uiconfig.THEME_BUTTON_WIDTH,
+		height:uiconfig.THEME_BUTTON_HEIGHT
+	});
+	
+	theme_buttons_view.add(header_template_button);
+/*
+ * createThemeButtons関数を使うとボタンに画像をうまく設定できませんでした。
+ * 今はボタンごとに個別に宣言してます。何かうまいやり方が他にあったらよろしくお願いします。
+ */
+
+//	var theme_buttons = new Array(4);	
+/*	
 		function createThemeButtons(cnt){
 		if(cnt >= 4)
 			return;
 		
 		var theme_btn = Ti.UI.createButton({
-			width:width /4, //*0.2
-			height:theme_buttons_view.height * 0.8,
-			top:theme_buttons_view.height *0.21,
-			left:(0.05 +(cnt *0.23))*width,
+			backgroundImages: '/images/header_under/header_btn1(178.83).png',
+			width: uiconfig.THEME_BUTTON_WIDTH,
+			height: uiconfig.THEME_BUTTON_HEIGHT,
+			top: (uiconfig.HEADER_UNDER_HEIGHT - uiconfig.THEME_BUTTON_HEIGHT) *1.5,
+			left: uiconfig.THEME_BUTTON_WIDTH *cnt +(width -uiconfig.THEME_BUTTON_WIDTH *4)*0.2
 		});
-		
 		theme_buttons[cnt] = theme_btn;
-		theme_buttons_view.add(theme_btn);
+		theme_buttons_view.add(theme_buttons[cnt]);
 		
 		createThemeButtons(cnt +1);
 		
-		theme_buttons[0].setTitle("新着");
-		theme_buttons[1].setTitle("人気");
-		theme_buttons[2].setTitle("コメント");
-		theme_buttons[3].setTitle("未完成");
+		//theme_buttons[0].backgroundImages = '/images/header_under/header_btn1(178.83).png';
+		//theme_buttons_view.add(theme_buttons[0]);
+		//theme_buttons[1].backgroundImages = '/images/header_under/header_btn2(178.83).png';
+		//theme_buttons_view.add(theme_buttons[1]);
+		//theme_buttons[2].backgroundImages = '/images/header_under/header_btn3(178.83).png';
+		//theme_buttons_view.add(theme_buttons[2]);
+		//theme_buttons[3].backgroundImages = '/images/header_under/header_btn4(179.83).png';
+		//theme_buttons_view.add(theme_buttons[3]);
 	}
 
 	
 	createThemeButtons(0);
-
+*/
 
 		
 	base_window.upperRibbon = upperRibbon;
@@ -252,12 +306,12 @@ exports.createCommonNavigationWindow = function(){
 	
 	
 	var option_button = Ti.UI.createButton({
-		title:'opt',
-		center:{x:width *0.1,y:height * 0.05},
-		width:width *0.15,
-		height:height *0.07,
+		backgroundImage: '/images/header/menu_btn(50,42).png',
+		center:{x:width *0.07,y:upperRibbon.height *0.5},
+		width: uiconfig.OPTION_BUTTON_WIDTH,
+		height: uiconfig.OPTION_BUTTON_HEIGHT
 	});
-	
+
 	base_view.add(option_button);
 	
 	option_button.addEventListener('click',function(event){
@@ -269,10 +323,10 @@ exports.createCommonNavigationWindow = function(){
 	});
 	
 	var search_button = Ti.UI.createButton({
-		title:'眼鏡',
-		center:{x:width *0.9,y:height *0.05},
-		width:width *0.15,
-		height:height *0.07,
+		backgroundImage: '/images/header/search_icon(62,62).png',
+		center: {x:width *0.9, y:upperRibbon.height *0.5},
+		width: uiconfig.SEARCH_BUTTON_WIDTH,
+		height: uiconfig.SEARCH_BUTTON_HEIGHT
 	});
 	
 	search_button.addEventListener('click',function(event){
@@ -282,16 +336,11 @@ exports.createCommonNavigationWindow = function(){
 	base_view.add(search_button);
 	
 	var title_label = Ti.UI.createLabel({
-		text:'４コマちゃん',
-		font : {
-			fontSize : uiconfig.OPT_VIEW_FONTSIZE
-		},
-		width:width *0.5,
-		height:height *0.1,
-		textAlign:"center",
-		center:{x:width *0.5,y:height *0.05}
+		backgroundImage:'/images/header/logo(175,43).png',
+		width: uiconfig.TITLE_WIDTH,
+		height: uiconfig.TITLE_HEIGHT,
+		center:{x:width *0.5,y:upperRibbon.height*0.5}
 	});
-	
 	base_view.add(title_label);
 	
 
@@ -332,7 +381,7 @@ exports.createCommonNavigationWindow = function(){
 			
 			//theme_buttons_view.animate({top:-0.3*height,duration:200});
 		}
-		
+
 
 		base_window.win_touch_p = {x:0,y:0};
 		
@@ -340,20 +389,20 @@ exports.createCommonNavigationWindow = function(){
 	});
 	
 	var home_button = Ti.UI.createButton({
-		title:'home',
-		center:{/*x:width *0.2,*/y:height *0.95},
-		left: 10,
-		width:uiconfig.COMMON_UNDER_BOTTON_WIDTH,
-		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT,
+		backgroundImage: '/images/footer/footer_btn1(239,97).png',
+		bottom: 0,
+		left: 0,
+		width: uiconfig.COMMON_UNDER_BOTTON_WIDTH,
+		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT
 	});
 	
 	base_view.add(home_button);
 	
 	var list_button = Ti.UI.createButton({
-		title:'作る',
-		center:{x:width*0.5,y:height *0.95},
-		width:uiconfig.COMMON_UNDER_BOTTON_WIDTH,
-		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT,
+		backgroundImage: '/images/footer/footer_btn2(239,97).png',
+		bottom: 0,
+		width: uiconfig.COMMON_UNDER_BOTTON_WIDTH,
+		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT
 	});
 	
 	list_button.addEventListener("click",function(){
@@ -363,11 +412,11 @@ exports.createCommonNavigationWindow = function(){
 	base_view.add(list_button);
 	
 	var people_button = Ti.UI.createButton({
-		title:'素材',
-		center:{/*x:width*0.8,*/y:height *0.95},
-		right: 10,
+		backgroundImage: '/images/footer/footer_btn3(238,97).png',
+		right: 0,
+		bottom: 0,
 		width:uiconfig.COMMON_UNDER_BOTTON_WIDTH,
-		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT,
+		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT
 	});
 	
 	base_view.add(people_button);
