@@ -37,7 +37,9 @@ exports.createCommonNavigationWindow = function(){
 		backgroundColor:'rgb(51,73,96)',
 		touchEnabled:false,
 		horizontalWrap:true,
-		url:'/user_image.html',
+		loading:true,
+		showScrollbars:false,
+		url:'/HTML/user_image/user_image.html',
 		
 		center:{x:width *0.35,y:height *0.27},
 	});
@@ -103,37 +105,30 @@ exports.createCommonNavigationWindow = function(){
 
 	
 		option_tags[0].addEventListener('click',function(e){
-			/*
-			alert('pushed option 0');
-			Titanium.App.fireEvent('option 0');
-			*/
-			require("/likesWindow").LikesWindow().open();
+
+			require("/OptionWindows/LikesWindow").openLikesWindow().open();
 		
 		});
 
 		option_tags[1].addEventListener('click',function(e){
-			//alert('pushed option 1');
-			//Titanium.App.fireEvent('option 1');
-			require("/MessagesWindow").MessagesWindow().open();
+
+			require("/OptionWindows/MessagesWindow").openMessagesWindow().open();
 		
 		});
 
 		option_tags[2].addEventListener('click',function(e){
-			//alert('pushed option 2');
-			//Titanium.App.fireEvent('option 2');
-			require("/FollowingWindow").FollowingWindow().open();
+
+			require("/OptionWindows/FollowingWindow").openFollowingWindow().open();
 		});
 
 		option_tags[3].addEventListener('click',function(e){
-			//alert('pushed option 3');
-			//Titanium.App.fireEvent('option 3');
-			require("/FollowerWindow").FollowerWindow().open();
+
+			require("/OptionWindows/FollowerWindow").openFollowerWindow().open();
 		});
 
 		option_tags[4].addEventListener('click',function(e){
-			//alert('pushed option 4');
-			//Titanium.App.fireEvent('option 4');
-			require("/ConfigWindow").ConfigWindow().open();
+
+			require("/OptionWindows/ConfigWindow").openConfigWindow().open();
 		});
 
 
@@ -175,6 +170,7 @@ exports.createCommonNavigationWindow = function(){
 		backgroundColor:'rgb(255,235,205)',
 		touchEnabled:true,
 		horizontalWrap:true,
+		loading:true,
 		url:'/HTML/4cora_top.html',
 		
 		//top:height *0.15,
