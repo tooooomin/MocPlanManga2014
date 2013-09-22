@@ -199,16 +199,16 @@ exports.createCommonNavigationWindow = function(){
 	
 	main_web_view.top = theme_buttons_view.height;
 
-//	var theme_buttons = new Array(4);
+/*
+ * ヘッダの下のボタン（テーマボタンだったもの）の宣言とviewへの追加
+ */
 	
 	var header_new_button = Ti.UI.createButton({
 		backgroundImage: '/images/header_under/header_btn1(178,83).png',
 		top: (uiconfig.HEADER_UNDER_HEIGHT - uiconfig.THEME_BUTTON_HEIGHT) *1.5,
 		left: (width -uiconfig.THEME_BUTTON_WIDTH *4) *0.2,
 		width: uiconfig.THEME_BUTTON_WIDTH,
-		//width: width *(178/720),
 		height:uiconfig.THEME_BUTTON_HEIGHT
-		//height: height *(83/1280)
 	});
 	
 	theme_buttons_view.add(header_new_button);
@@ -217,10 +217,7 @@ exports.createCommonNavigationWindow = function(){
 		backgroundImage: '/images/header_under/header_btn2(178,83).png',
 		top: (uiconfig.HEADER_UNDER_HEIGHT - uiconfig.THEME_BUTTON_HEIGHT) *1.5,
 		left: uiconfig.THEME_BUTTON_WIDTH +(width -uiconfig.THEME_BUTTON_WIDTH *4) *0.4,
-		//left: width *(178/720)  +(width - width *(178/720) *4)*0.3,
-		//width: width *(178/720),
 		width: uiconfig.THEME_BUTTON_WIDTH,
-		//height: height *(83/1280)
 		height:uiconfig.THEME_BUTTON_HEIGHT
 	});
 	
@@ -229,12 +226,9 @@ exports.createCommonNavigationWindow = function(){
 	var header_comment_button = Ti.UI.createButton({
 		backgroundImage: '/images/header_under/header_btn3(178,83).png',
 		top: (uiconfig.HEADER_UNDER_HEIGHT - uiconfig.THEME_BUTTON_HEIGHT) *1.5,
-		//left: uiconfig.THEME_BOTTON_WIDTH *2,
 		right:uiconfig.THEME_BUTTON_WIDTH + (width -uiconfig.THEME_BUTTON_WIDTH *4) *0.4,
 		width: uiconfig.THEME_BUTTON_WIDTH,
-		//width: width *(178/720),
 		height:uiconfig.THEME_BUTTON_HEIGHT
-		//height: height *(83/1280)
 	});
 	
 	theme_buttons_view.add(header_comment_button);
@@ -242,16 +236,18 @@ exports.createCommonNavigationWindow = function(){
 	var header_template_button = Ti.UI.createButton({
 		backgroundImage: '/images/header_under/header_btn4(179,83).png',
 		top: (uiconfig.HEADER_UNDER_HEIGHT - uiconfig.THEME_BUTTON_HEIGHT) *1.5,
-		//left: uiconfig.THEME_BOTTON_WIDTH *3,
 		right: (width -uiconfig.THEME_BUTTON_WIDTH *4) *0.2,
 		width: uiconfig.THEME_BUTTON_WIDTH,
-		//width: width *(179/720),
 		height:uiconfig.THEME_BUTTON_HEIGHT
-		//height: height *(83/1280)
 	});
 	
 	theme_buttons_view.add(header_template_button);
-	
+/*
+ * createThemeButtons関数を使うとボタンに画像をうまく設定できませんでした。
+ * 今はボタンごとに個別に宣言してます。何かうまいやり方が他にあったらよろしくお願いします。
+ */
+
+//	var theme_buttons = new Array(4);	
 /*	
 		function createThemeButtons(cnt){
 		if(cnt >= 4)
