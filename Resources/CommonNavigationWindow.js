@@ -378,12 +378,39 @@ exports.createCommonNavigationWindow = function(){
 	var home_button = require('/CreateCommonParts').createHomeButton();
 	base_view.add(home_button);
 	
+//<<<<<<< HEAD
 	var list_button = require('CreateCommonParts').createListButton();
 	base_view.add(list_button);	
 	
 	var people_button = require('/CreateCommonParts').createPeopleButton();
 	base_view.add(people_button);	
+/*	
+=======
+	var list_button = Ti.UI.createButton({
+		backgroundImage: '/images/footer/footer_btn2(239,97).png',
+		bottom: 0,
+		width: uiconfig.COMMON_UNDER_BOTTON_WIDTH,
+		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT
+	});
 	
+	list_button.addEventListener("click",function(){
+		require("/CreateNewMangaWindow").CreateNewMangaWindow().open();
+	});
+	
+	base_view.add(list_button);
+	
+	var people_button = Ti.UI.createButton({
+		backgroundImage: '/images/footer/footer_btn3(238,97).png',
+		right: 0,
+		bottom: 0,
+		width:uiconfig.COMMON_UNDER_BOTTON_WIDTH,
+		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT
+	});
+	
+	base_view.add(people_button);
+
+>>>>>>> 1a2a58ed5d21ebdcd492e81aaddad895e7649433
+*/
 	/*
 	 * 
 	 * ここからビューの中身を定義
@@ -395,10 +422,7 @@ exports.createCommonNavigationWindow = function(){
 		var addImageButton= new require('/UsingMedia/imageFrame/MenuProjectFrame')();
 		base_view.add(addImageButton);
 	*/
-
 	
-
-
 	
 	return base_window;
 };
