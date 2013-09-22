@@ -29,6 +29,7 @@ exports.createCommonNavigationWindow = function(){
 	 * 
 	 * 
 	 */
+	/* サブヘッダのユーザ画像 */
 	var user_photo_web_view = Titanium.UI.createWebView({
 		height:height *0.5,
 		width:width *0.65,
@@ -36,7 +37,9 @@ exports.createCommonNavigationWindow = function(){
 		backgroundColor:'rgb(51,73,96)',
 		touchEnabled:false,
 		horizontalWrap:true,
-		url:'/user_image.html',
+		loading:true,
+		showScrollbars:false,
+		url:'/HTML/user_image/user_image.html',
 		
 		center:{x:width *0.35,y:height *0.27},
 	});
@@ -46,18 +49,6 @@ exports.createCommonNavigationWindow = function(){
 	});
 	
 	base_window.add(user_photo_web_view);
-	
-	var edit_option_button = Ti.UI.createButton({
-		title:'鉛筆',
-		center:{x:width *0.1,y:height *0.05},
-		width:width *0.15,
-		height:height *0.07,
-	});
-	
-	edit_option_button.addEventListener('click',function(event){
-		alert('編集画面に行く');
-	});
-	base_window.add(edit_option_button);
 	
 	var option_username_label = Ti.UI.createLabel({
 			text:'ユーザー名:test',
@@ -72,37 +63,77 @@ exports.createCommonNavigationWindow = function(){
 	base_window.add(option_username_label);
 	
 	var option_tags = Array(uiconfig.COUNT_OPTION);
+
 	/*
 	 * for文の場合値のスコープが変になるので再帰で書いておきました
 	 * 
 	 */
+	
+
 	function createOptionTags(cnt){
 		if(cnt >= uiconfig.COUNT_OPTION)
 			return;
 		var tag = Ti.UI.createLabel({
-			text:'オプション'+cnt,
+			//text:'オプション'+cnt,
 			width:width *0.5,
-			height:height *0.2,
+			height:uiconfig.OPT_VIEW_TAG_HEIGHT,
 			center:{x:0.3*width,y:height *0.5 + cnt *uiconfig.OPT_VIEW_TAG_HEIGHT},
 			font : {
 				fontSize : uiconfig.OPT_VIEW_FONTSIZE
 			}
 		});
+		/*
 		tag.addEventListener('click',function(e){
 			alert('pushed option'+cnt);
 			Titanium.App.fireEvent('option'+cnt);
 		
 		});
+		*/
 		base_window.add(tag);
 		option_tags[cnt] = tag;
 		
-		createOptionTags(cnt +1);
+		createOptionTags(cnt + 1);
+		
+		option_tags[0].setText("Likes");
+		option_tags[1].setText("messages");
+		option_tags[2].setText("Following");
+		option_tags[3].setText("Follower");
+		option_tags[4].setText("Config");
 	}
-	
+
 	createOptionTags(0);
+
 	
-	
-	
+		option_tags[0].addEventListener('click',function(e){
+
+
+			require("/OptionWindows/LikesWindow").openLikesWindow().open();
+		
+		});
+
+		option_tags[1].addEventListener('click',function(e){
+
+			require("/OptionWindows/MessagesWindow").openMessagesWindow().open();
+		
+		});
+
+		option_tags[2].addEventListener('click',function(e){
+
+			require("/OptionWindows/FollowingWindow").openFollowingWindow().open();
+		});
+
+		option_tags[3].addEventListener('click',function(e){
+
+			require("/OptionWindows/FollowerWindow").openFollowerWindow().open();
+		});
+
+		option_tags[4].addEventListener('click',function(e){
+
+			require("/OptionWindows/ConfigWindow").openConfigWindow().open();
+
+		});
+
+
 	var base_view = Titanium.UI.createView({
 		backgroundColor : 'rgb(255,235,205)',
 		width:Ti.UI.FILL,
@@ -125,7 +156,7 @@ exports.createCommonNavigationWindow = function(){
   		contentHeight: 'auto',
   		showVerticalScrollIndicator: false,
   		showHorizontalScrollIndicator: false,
-  		height: '80%',
+  		bottom: uiconfig.COMMON_UNDER_BOTTON_HEIGHT, //フッタのボタンの大きさに合わせる
   		width: Ti.UI.FILL,
   		top:height *0.07,
 	});
@@ -133,15 +164,6 @@ exports.createCommonNavigationWindow = function(){
 	scroll_view.add(main_scroll_base_view);
 	base_view.add(scroll_view);
 		
-	//ボタンセクションのスワイプ呼び出し
-	var theme_buttons_view = Ti.UI.createView({
-		width:Ti.UI.FILL,
-		height:height *0.15,
-		backgroundColor:'gray',
-		top:0,
-	});
-	
-	main_scroll_base_view.add(theme_buttons_view);
 	
 	var main_web_view = Titanium.UI.createWebView({
 		height:2000,
@@ -150,53 +172,125 @@ exports.createCommonNavigationWindow = function(){
 		backgroundColor:'rgb(255,235,205)',
 		touchEnabled:true,
 		horizontalWrap:true,
+		loading:true,
 		url:'/HTML/4cora_top.html',
 		
-		top:height *0.15,
+		//top:height *0.15,
+		top: 0
 	});
 	
 	main_scroll_base_view.add(main_web_view);
 	
-	var theme_buttons = new Array(4);
-	function createThemeButtons(cnt){
-		if(cnt >= 4)
-			return;
-			
-		var theme_btn = Ti.UI.createButton({
-			title:'テーマ'+cnt,
-			width:width *0.2,
-			height:theme_buttons_view.height * 0.8,
-			top:theme_buttons_view.height *0.21,
-			left:(0.05 +(cnt *0.23))*width,
-		});
-		
-		theme_buttons[cnt] = theme_btn;
-		theme_buttons_view.add(theme_btn);
-		
-		createThemeButtons(cnt +1);
-		
-	}
-	
-	createThemeButtons(0);
-	
 	var underRibbon = Titanium.UI.createImageView({
-			image:'/images/underRibbon/underRibbon2.png',
+			image: '/images/footer/footer_bg(720,99).png',
 			width:Titanium.UI.FILL,
-			height:height *0.2,
-			top:uiconfig.COMMON_DOWN_BAR_TOP_AT,
+			//height: 99,
+			height: height *(99/uiconfig.ACTUAL_HEIGHT),
+			bottom: 0
 	});
 	
 		base_view.add(underRibbon);
 		
 	var upperRibbon = Titanium.UI.createImageView({
 			image:uiconfig.COMMON_UP_BAR_IMAGE_PATH,
-			width:width,
-			height:height *0.12,
-			top:uiconfig.COMMON_UP_BAR_TOP_AT,
-			bottom:uiconfig.COMMON_UP_BAR_BOTTOM_AT,
+			width: Ti.UI.FILL,
+			height: uiconfig.HEADER_RIBBON_HEIGHT,
+			top: 0,
 	});
 	
 		base_view.add(upperRibbon);
+		
+	var theme_buttons_view = Ti.UI.createView({
+		backgroundImage: '/images/header_under/next_header_bg(720,87).png',
+		width:Ti.UI.FILL,
+		height: uiconfig.HEADER_UNDER_HEIGHT,
+		top: upperRibbon.height
+	});
+	
+	base_view.add(theme_buttons_view);
+	
+	main_web_view.top = theme_buttons_view.height;
+
+/*
+ * ヘッダの下のボタン（テーマボタンだったもの）の宣言とviewへの追加
+ */
+	
+	var header_new_button = Ti.UI.createButton({
+		backgroundImage: '/images/header_under/header_btn1(178,83).png',
+		top: (uiconfig.HEADER_UNDER_HEIGHT - uiconfig.THEME_BUTTON_HEIGHT) *1.5,
+		left: (width -uiconfig.THEME_BUTTON_WIDTH *4) *0.2,
+		width: uiconfig.THEME_BUTTON_WIDTH,
+		height:uiconfig.THEME_BUTTON_HEIGHT
+	});
+	
+	theme_buttons_view.add(header_new_button);
+	
+	var header_popularity_button = Ti.UI.createButton({
+		backgroundImage: '/images/header_under/header_btn2(178,83).png',
+		top: (uiconfig.HEADER_UNDER_HEIGHT - uiconfig.THEME_BUTTON_HEIGHT) *1.5,
+		left: uiconfig.THEME_BUTTON_WIDTH +(width -uiconfig.THEME_BUTTON_WIDTH *4) *0.4,
+		width: uiconfig.THEME_BUTTON_WIDTH,
+		height:uiconfig.THEME_BUTTON_HEIGHT
+	});
+	
+	theme_buttons_view.add(header_popularity_button);
+	
+	var header_comment_button = Ti.UI.createButton({
+		backgroundImage: '/images/header_under/header_btn3(178,83).png',
+		top: (uiconfig.HEADER_UNDER_HEIGHT - uiconfig.THEME_BUTTON_HEIGHT) *1.5,
+		right:uiconfig.THEME_BUTTON_WIDTH + (width -uiconfig.THEME_BUTTON_WIDTH *4) *0.4,
+		width: uiconfig.THEME_BUTTON_WIDTH,
+		height:uiconfig.THEME_BUTTON_HEIGHT
+	});
+	
+	theme_buttons_view.add(header_comment_button);
+
+	var header_template_button = Ti.UI.createButton({
+		backgroundImage: '/images/header_under/header_btn4(179,83).png',
+		top: (uiconfig.HEADER_UNDER_HEIGHT - uiconfig.THEME_BUTTON_HEIGHT) *1.5,
+		right: (width -uiconfig.THEME_BUTTON_WIDTH *4) *0.2,
+		width: uiconfig.THEME_BUTTON_WIDTH,
+		height:uiconfig.THEME_BUTTON_HEIGHT
+	});
+	
+	theme_buttons_view.add(header_template_button);
+/*
+ * createThemeButtons関数を使うとボタンに画像をうまく設定できませんでした。
+ * 今はボタンごとに個別に宣言してます。何かうまいやり方が他にあったらよろしくお願いします。
+ */
+
+//	var theme_buttons = new Array(4);	
+/*	
+		function createThemeButtons(cnt){
+		if(cnt >= 4)
+			return;
+		
+		var theme_btn = Ti.UI.createButton({
+			backgroundImages: '/images/header_under/header_btn1(178.83).png',
+			width: uiconfig.THEME_BUTTON_WIDTH,
+			height: uiconfig.THEME_BUTTON_HEIGHT,
+			top: (uiconfig.HEADER_UNDER_HEIGHT - uiconfig.THEME_BUTTON_HEIGHT) *1.5,
+			left: uiconfig.THEME_BUTTON_WIDTH *cnt +(width -uiconfig.THEME_BUTTON_WIDTH *4)*0.2
+		});
+		theme_buttons[cnt] = theme_btn;
+		theme_buttons_view.add(theme_buttons[cnt]);
+		
+		createThemeButtons(cnt +1);
+		
+		//theme_buttons[0].backgroundImages = '/images/header_under/header_btn1(178.83).png';
+		//theme_buttons_view.add(theme_buttons[0]);
+		//theme_buttons[1].backgroundImages = '/images/header_under/header_btn2(178.83).png';
+		//theme_buttons_view.add(theme_buttons[1]);
+		//theme_buttons[2].backgroundImages = '/images/header_under/header_btn3(178.83).png';
+		//theme_buttons_view.add(theme_buttons[2]);
+		//theme_buttons[3].backgroundImages = '/images/header_under/header_btn4(179.83).png';
+		//theme_buttons_view.add(theme_buttons[3]);
+	}
+
+	
+	createThemeButtons(0);
+*/
+
 		
 	base_window.upperRibbon = upperRibbon;
 	base_window.underRibbon = underRibbon;
@@ -212,12 +306,12 @@ exports.createCommonNavigationWindow = function(){
 	
 	
 	var option_button = Ti.UI.createButton({
-		title:'opt',
-		center:{x:width *0.1,y:height * 0.05},
-		width:width *0.15,
-		height:height *0.07,
+		backgroundImage: '/images/header/menu_btn(50,42).png',
+		center:{x:width *0.07,y:upperRibbon.height *0.5},
+		width: uiconfig.OPTION_BUTTON_WIDTH,
+		height: uiconfig.OPTION_BUTTON_HEIGHT
 	});
-	
+
 	base_view.add(option_button);
 	
 	option_button.addEventListener('click',function(event){
@@ -229,10 +323,10 @@ exports.createCommonNavigationWindow = function(){
 	});
 	
 	var search_button = Ti.UI.createButton({
-		title:'眼鏡',
-		center:{x:width *0.9,y:height *0.05},
-		width:width *0.15,
-		height:height *0.07,
+		backgroundImage: '/images/header/search_icon(62,62).png',
+		center: {x:width *0.9, y:upperRibbon.height *0.5},
+		width: uiconfig.SEARCH_BUTTON_WIDTH,
+		height: uiconfig.SEARCH_BUTTON_HEIGHT
 	});
 	
 	search_button.addEventListener('click',function(event){
@@ -242,16 +336,11 @@ exports.createCommonNavigationWindow = function(){
 	base_view.add(search_button);
 	
 	var title_label = Ti.UI.createLabel({
-		text:'４コマちゃん',
-		font : {
-			fontSize : uiconfig.OPT_VIEW_FONTSIZE
-		},
-		width:width *0.5,
-		height:height *0.1,
-		textAlign:"center",
-		center:{x:width *0.5,y:height *0.05}
+		backgroundImage:'/images/header/logo(175,43).png',
+		width: uiconfig.TITLE_WIDTH,
+		height: uiconfig.TITLE_HEIGHT,
+		center:{x:width *0.5,y:upperRibbon.height*0.5}
 	});
-	
 	base_view.add(title_label);
 	
 
@@ -292,7 +381,7 @@ exports.createCommonNavigationWindow = function(){
 			
 			//theme_buttons_view.animate({top:-0.3*height,duration:200});
 		}
-		
+
 
 		base_window.win_touch_p = {x:0,y:0};
 		
@@ -300,19 +389,20 @@ exports.createCommonNavigationWindow = function(){
 	});
 	
 	var home_button = Ti.UI.createButton({
-		title:'home',
-		center:{x:width *0.2,y:height *0.95},
-		width:uiconfig.COMMON_UNDER_BOTTON_WIDTH,
-		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT,
+		backgroundImage: '/images/footer/footer_btn1(239,97).png',
+		bottom: 0,
+		left: 0,
+		width: uiconfig.COMMON_UNDER_BOTTON_WIDTH,
+		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT
 	});
 	
 	base_view.add(home_button);
 	
 	var list_button = Ti.UI.createButton({
-		title:'list',
-		center:{x:width*0.5,y:height *0.95},
-		width:uiconfig.COMMON_UNDER_BOTTON_WIDTH,
-		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT,
+		backgroundImage: '/images/footer/footer_btn2(239,97).png',
+		bottom: 0,
+		width: uiconfig.COMMON_UNDER_BOTTON_WIDTH,
+		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT
 	});
 	
 	list_button.addEventListener("click",function(){
@@ -322,10 +412,11 @@ exports.createCommonNavigationWindow = function(){
 	base_view.add(list_button);
 	
 	var people_button = Ti.UI.createButton({
-		title:'people',
-		center:{x:width*0.8,y:height *0.95},
+		backgroundImage: '/images/footer/footer_btn3(238,97).png',
+		right: 0,
+		bottom: 0,
 		width:uiconfig.COMMON_UNDER_BOTTON_WIDTH,
-		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT,
+		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT
 	});
 	
 	base_view.add(people_button);
