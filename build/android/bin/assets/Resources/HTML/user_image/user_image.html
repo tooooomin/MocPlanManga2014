@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>user_pic</title>
+
+<style type="text/css">
+	body{
+		width:200px;
+		height:200px;
+	}
+	
+	img.circle{
+    width:180px;
+    height:180px;
+    -webkit-border-radius:20%;
+    border-radius:50%;
+    box-shadow: 0px 0px 0px 3px #AAAAAA;
+    margin:0 0px;
+}
+
+</style>
+</head>
+<body scroll="no">
+<script type="text/javascript" src="./jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="./jquery.imgr.min.js"></script>
+
+<script type="text/javascript">
+    jQuery.event.add(window, "load", function(){
+        var fw = 180;        //fixed width
+        var fh = 180;        //fixed height
+        var sl = 'img.circle'; //selector
+        $(sl).each(function(){
+
+            if ($(this).width()>= $(this).height()) {
+                $(this).width(fw);
+            } else {
+                $(this).height(fh);
+            }
+        });
+    });
+</script>
+<img src="./user_image_sample.jpg" alt = "ユーザ画像" class="circle">
+
+
+</body>
+</html>
