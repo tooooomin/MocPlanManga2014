@@ -5,7 +5,11 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
+<<<<<<< HEAD
 [DEBUG] waited 0.027000 seconds on emulator to get ready
+=======
+[DEBUG] waited 0.030000 seconds on emulator to get ready
+>>>>>>> Merge0920
 [DEBUG] com.cyberagent.app.manga installed? False
 [INFO] Copying CommonJS modules...
 [INFO] Copying project resources..
@@ -885,6 +889,10 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
+<<<<<<< HEAD
 [DEBUG] waited 0.021000 seconds on emulator to get ready
+=======
+[DEBUG] waited 0.020000 seconds on emulator to get ready
+>>>>>>> Merge0920
 [INFO] Installing application on device
 [INFO] Application installed. Launch from drawer on Home Screen

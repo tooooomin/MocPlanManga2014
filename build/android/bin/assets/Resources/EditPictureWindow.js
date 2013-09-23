@@ -50,7 +50,7 @@ exports.EditPicturewindow = function() {
 	base_window.add(upperRibbon);
 	
 	var underRibbon = Titanium.UI.createImageView({
-			image: '/images/footer/footer_bg(720,99).png',
+			image:uiconfig.COMMON_UP_BAR_IMAGE_PATH,
 			width:Titanium.UI.FILL,
 			//height: 99,
 			height: height *(99/uiconfig.ACTUAL_HEIGHT),
