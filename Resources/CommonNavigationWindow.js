@@ -345,8 +345,8 @@ exports.createCommonNavigationWindow = function(){
 	
 	base_view.add(require('/CreateCommonParts').createPeopleButton());	
 
-/*
-	 * 
+
+	/* 
 	 * ここからビューの中身を定義
 	 */
 	

@@ -127,4 +127,3 @@ exports.COMMON_UNDER_BOTTON_WIDTH  = width *(239/720);
 
 exports.IMAGEPICK_DEFAULT_IMGPATH ='/images/icon/pallet_default.png';
 exports.IMAGEPICK_DEFAULT_PRESSED_IMGPATH = '/images/icon/pallet_default_pressed.png';
-
