@@ -103,6 +103,14 @@ exports.CreateNewMangaWindow = function() {
 		center:width/2,	
 	});
 	
+	/*
+	 * Event listener to open confirmation window
+	 */
+	
+	send_button.addEventListener('click', function() {
+		require('confirmWindow').createConfrimWindow().open();
+	});
+	
 	function selectPicture(){
 		
 		var dialog = Titanium.UI.createOptionDialog({
