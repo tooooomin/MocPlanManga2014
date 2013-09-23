@@ -5,7 +5,7 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.030000 seconds on emulator to get ready
+[DEBUG] waited 0.023000 seconds on emulator to get ready
 [DEBUG] com.cyberagent.app.manga installed? False
 [INFO] Copying CommonJS modules...
 [INFO] Copying project resources..
@@ -15,6 +15,7 @@ Logfile initialized
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\app.js => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\app.js
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\CommonNavigationWindow.js => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\CommonNavigationWindow.js
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\ConfigWindow.js => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\ConfigWindow.js
+[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\confirmWindow.js => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\confirmWindow.js
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\CreateCommonParts.js => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\CreateCommonParts.js
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\CreateNewMangaWindow.js => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\CreateNewMangaWindow.js
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\EditPictureWindow.js => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\EditPictureWindow.js
@@ -828,6 +829,7 @@ Logfile initialized
 [DEBUG] from resource zip => assets/Resources/SearchWin.js
 [DEBUG] from resource zip => assets/Resources/app.js
 [DEBUG] from resource zip => assets/Resources/appicon.png
+[DEBUG] from resource zip => assets/Resources/confirmWindow.js
 [DEBUG] from resource zip => assets/Resources/default.png
 [DEBUG] from resource zip => assets/Resources/icon.png
 [DEBUG] from resource zip => assets/Resources/jquery-2.0.3.min.js
