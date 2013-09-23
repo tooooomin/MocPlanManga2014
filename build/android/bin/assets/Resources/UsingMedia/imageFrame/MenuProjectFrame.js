@@ -28,7 +28,7 @@ function MenuProjectFrame() {
 		});
 
 		dialog.show();
-	
+		
 		dialog.addEventListener('click', function(dialog_button) {
 
 			if(dialog_button.index == 0) {
