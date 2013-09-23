@@ -12,7 +12,7 @@
     <url>http://</url>
     <description>not specified</description>
     <copyright>2013 by fviAtt</copyright>
-    <icon>icon.png</icon>
+    <icon>appicon.PNG</icon>
     <persistent-wifi>false</persistent-wifi>
     <prerendered-icon>false</prerendered-icon>
     <statusbar-style>default</statusbar-style>
@@ -54,5 +54,7 @@
         <target device="tizen">false</target>
     </deployment-targets>
     <sdk-version>3.1.2.GA</sdk-version>
-    <property name="ti.deploytype">development</property>
+
+    <property name="ti.deploytype">test</property>
+
 </ti:app>

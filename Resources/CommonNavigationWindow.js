@@ -66,7 +66,7 @@ exports.createCommonNavigationWindow = function() {
 
 	/*
 	 * for文の場合値のスコープが変になるので再帰で書いておきました
-	 * 
+	 * サブヘッダのラベル作成
 	 */
 	
 
@@ -103,11 +103,13 @@ exports.createCommonNavigationWindow = function() {
 
 	createOptionTags(0);
 
-	
+	/*
+	 * サブヘッダからそれぞれの画面に遷移
+	 */
 		option_tags[0].addEventListener('click',function(e){
 
 
-			require("/OptionWindows/LikesWindow").openLikesWindow().open();
+			require("/OptionWindows/LikesWindow").openLikesWindow(base_window).open();
 		
 		});
 
@@ -180,33 +182,23 @@ exports.createCommonNavigationWindow = function() {
 	});
 	
 	main_scroll_base_view.add(main_web_view);
-	
-	var underRibbon = Titanium.UI.createImageView({
-			image: '/images/footer/footer_bg(720,99).png',
-			width:Titanium.UI.FILL,
-			//height: 99,
-			height: height *(99/uiconfig.ACTUAL_HEIGHT),
-			bottom: 0
-	});
-	
-		base_view.add(underRibbon);
-		
-	var upperRibbon = Titanium.UI.createImageView({
-			image:uiconfig.COMMON_UP_BAR_IMAGE_PATH,
-			width: Ti.UI.FILL,
-			height: uiconfig.HEADER_RIBBON_HEIGHT,
-			top: 0,
-	});
-	
-		base_view.add(upperRibbon);
-		
-	var theme_buttons_view = Ti.UI.createView({
-		backgroundImage: '/images/header_under/next_header_bg(720,87).png',
-		width:Ti.UI.FILL,
-		height: uiconfig.HEADER_UNDER_HEIGHT,
-		top: upperRibbon.height
-	});
-	
+
+/*
+ * フッタの背景
+ */
+	var underRibbon = require('/CreateCommonParts').createUnderRibbon();
+	base_view.add(underRibbon);
+
+/*
+ * ヘッダの背景
+ */
+	var upperRibbon = require('/CreateCommonParts').createUpperRibbon();
+	base_view.add(upperRibbon);
+
+/*
+ * テーマボタン(今はテーマボタンじゃない)の背景
+ */
+	var theme_buttons_view = require('/CreateCommonParts').createThemeButtonsView();	
 	base_view.add(theme_buttons_view);
 	
 	main_web_view.top = theme_buttons_view.height;
@@ -254,43 +246,6 @@ exports.createCommonNavigationWindow = function() {
 	});
 	
 	theme_buttons_view.add(header_template_button);
-/*
- * createThemeButtons関数を使うとボタンに画像をうまく設定できませんでした。
- * 今はボタンごとに個別に宣言してます。何かうまいやり方が他にあったらよろしくお願いします。
- */
-
-//	var theme_buttons = new Array(4);	
-/*	
-		function createThemeButtons(cnt){
-		if(cnt >= 4)
-			return;
-		
-		var theme_btn = Ti.UI.createButton({
-			backgroundImages: '/images/header_under/header_btn1(178.83).png',
-			width: uiconfig.THEME_BUTTON_WIDTH,
-			height: uiconfig.THEME_BUTTON_HEIGHT,
-			top: (uiconfig.HEADER_UNDER_HEIGHT - uiconfig.THEME_BUTTON_HEIGHT) *1.5,
-			left: uiconfig.THEME_BUTTON_WIDTH *cnt +(width -uiconfig.THEME_BUTTON_WIDTH *4)*0.2
-		});
-		theme_buttons[cnt] = theme_btn;
-		theme_buttons_view.add(theme_buttons[cnt]);
-		
-		createThemeButtons(cnt +1);
-		
-		//theme_buttons[0].backgroundImages = '/images/header_under/header_btn1(178.83).png';
-		//theme_buttons_view.add(theme_buttons[0]);
-		//theme_buttons[1].backgroundImages = '/images/header_under/header_btn2(178.83).png';
-		//theme_buttons_view.add(theme_buttons[1]);
-		//theme_buttons[2].backgroundImages = '/images/header_under/header_btn3(178.83).png';
-		//theme_buttons_view.add(theme_buttons[2]);
-		//theme_buttons[3].backgroundImages = '/images/header_under/header_btn4(179.83).png';
-		//theme_buttons_view.add(theme_buttons[3]);
-	}
-
-	
-	createThemeButtons(0);
-*/
-
 		
 	base_window.upperRibbon = upperRibbon;
 	base_window.underRibbon = underRibbon;
@@ -334,13 +289,8 @@ exports.createCommonNavigationWindow = function() {
 	});
 	
 	base_view.add(search_button);
-	
-	var title_label = Ti.UI.createLabel({
-		backgroundImage:'/images/header/logo(175,43).png',
-		width: uiconfig.TITLE_WIDTH,
-		height: uiconfig.TITLE_HEIGHT,
-		center:{x:width *0.5,y:upperRibbon.height*0.5}
-	});
+
+	var title_label = require('/CreateCommonParts').createTitleLabel();
 	base_view.add(title_label);
 	
 
@@ -387,43 +337,16 @@ exports.createCommonNavigationWindow = function() {
 		
 		
 	});
+
+
+	base_view.add(require('/CreateCommonParts').createHomeButton());
+
+	base_view.add(require('CreateCommonParts').createListButton());	
 	
-	var home_button = Ti.UI.createButton({
-		backgroundImage: '/images/footer/footer_btn1(239,97).png',
-		bottom: 0,
-		left: 0,
-		width: uiconfig.COMMON_UNDER_BOTTON_WIDTH,
-		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT
-	});
-	
-	base_view.add(home_button);
-	
-	var list_button = Ti.UI.createButton({
-		backgroundImage: '/images/footer/footer_btn2(239,97).png',
-		bottom: 0,
-		width: uiconfig.COMMON_UNDER_BOTTON_WIDTH,
-		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT
-	});
-	
-	list_button.addEventListener("click",function(){
-		require("/CreateNewMangaWindow").CreateNewMangaWindow().open();
-	});
-	
-	base_view.add(list_button);
-	
-	var people_button = Ti.UI.createButton({
-		backgroundImage: '/images/footer/footer_btn3(238,97).png',
-		right: 0,
-		bottom: 0,
-		width:uiconfig.COMMON_UNDER_BOTTON_WIDTH,
-		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT
-	});
-	
-	base_view.add(people_button);
-	
-	
-	/*
-	 * 
+	base_view.add(require('/CreateCommonParts').createPeopleButton());	
+
+
+	/* 
 	 * ここからビューの中身を定義
 	 */
 	
@@ -433,10 +356,7 @@ exports.createCommonNavigationWindow = function() {
 		var addImageButton= new require('/UsingMedia/imageFrame/MenuProjectFrame')();
 		base_view.add(addImageButton);
 	*/
-
 	
-
-
 	
 	return base_window;
 };
