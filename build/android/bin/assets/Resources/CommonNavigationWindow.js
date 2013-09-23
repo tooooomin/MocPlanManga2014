@@ -246,43 +246,6 @@ exports.createCommonNavigationWindow = function(){
 	});
 	
 	theme_buttons_view.add(header_template_button);
-/*
- * createThemeButtons関数を使うとボタンに画像をうまく設定できませんでした。
- * 今はボタンごとに個別に宣言してます。何かうまいやり方が他にあったらよろしくお願いします。
- */
-
-//	var theme_buttons = new Array(4);	
-/*	
-		function createThemeButtons(cnt){
-		if(cnt >= 4)
-			return;
-		
-		var theme_btn = Ti.UI.createButton({
-			backgroundImages: '/images/header_under/header_btn1(178.83).png',
-			width: uiconfig.THEME_BUTTON_WIDTH,
-			height: uiconfig.THEME_BUTTON_HEIGHT,
-			top: (uiconfig.HEADER_UNDER_HEIGHT - uiconfig.THEME_BUTTON_HEIGHT) *1.5,
-			left: uiconfig.THEME_BUTTON_WIDTH *cnt +(width -uiconfig.THEME_BUTTON_WIDTH *4)*0.2
-		});
-		theme_buttons[cnt] = theme_btn;
-		theme_buttons_view.add(theme_buttons[cnt]);
-		
-		createThemeButtons(cnt +1);
-		
-		//theme_buttons[0].backgroundImages = '/images/header_under/header_btn1(178.83).png';
-		//theme_buttons_view.add(theme_buttons[0]);
-		//theme_buttons[1].backgroundImages = '/images/header_under/header_btn2(178.83).png';
-		//theme_buttons_view.add(theme_buttons[1]);
-		//theme_buttons[2].backgroundImages = '/images/header_under/header_btn3(178.83).png';
-		//theme_buttons_view.add(theme_buttons[2]);
-		//theme_buttons[3].backgroundImages = '/images/header_under/header_btn4(179.83).png';
-		//theme_buttons_view.add(theme_buttons[3]);
-	}
-
-	
-	createThemeButtons(0);
-*/
-
 		
 	base_window.upperRibbon = upperRibbon;
 	base_window.underRibbon = underRibbon;
@@ -375,44 +338,15 @@ exports.createCommonNavigationWindow = function(){
 		
 	});
 
-	var home_button = require('/CreateCommonParts').createHomeButton();
-	base_view.add(home_button);
-	
-//<<<<<<< HEAD
-	var list_button = require('CreateCommonParts').createListButton();
-	base_view.add(list_button);	
-	
-	var people_button = require('/CreateCommonParts').createPeopleButton();
-	base_view.add(people_button);	
-/*	
-=======
-	var list_button = Ti.UI.createButton({
-		backgroundImage: '/images/footer/footer_btn2(239,97).png',
-		bottom: 0,
-		width: uiconfig.COMMON_UNDER_BOTTON_WIDTH,
-		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT
-	});
-	
-	list_button.addEventListener("click",function(){
-		require("/CreateNewMangaWindow").CreateNewMangaWindow().open();
-	});
-	
-	base_view.add(list_button);
-	
-	var people_button = Ti.UI.createButton({
-		backgroundImage: '/images/footer/footer_btn3(238,97).png',
-		right: 0,
-		bottom: 0,
-		width:uiconfig.COMMON_UNDER_BOTTON_WIDTH,
-		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT
-	});
-	
-	base_view.add(people_button);
 
->>>>>>> 1a2a58ed5d21ebdcd492e81aaddad895e7649433
-*/
-	/*
-	 * 
+	base_view.add(require('/CreateCommonParts').createHomeButton());
+
+	base_view.add(require('CreateCommonParts').createListButton());	
+	
+	base_view.add(require('/CreateCommonParts').createPeopleButton());	
+
+
+	/* 
 	 * ここからビューの中身を定義
 	 */
 	
