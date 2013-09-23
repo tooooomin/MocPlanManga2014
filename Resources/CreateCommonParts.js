@@ -2,9 +2,9 @@
  * ヘッダを作成するときに呼ぶ
  * 
  */
+uiconfig = require('/uiconfig');
+height = Ti.Platform.displayCaps.platformHeight, width = Ti.Platform.displayCaps.platformWidth;
 exports.createUpperRibbon = function(){
-	var uiconfig = require('/uiconfig');
-	height = Ti.Platform.displayCaps.platformHeight, width = Ti.Platform.displayCaps.platformWidth;
 	var upperRibbon = Titanium.UI.createImageView({
 			image:uiconfig.COMMON_UP_BAR_IMAGE_PATH,
 			width: Ti.UI.FILL,
@@ -16,8 +16,7 @@ exports.createUpperRibbon = function(){
 };
 
 exports.createTitleLabel = function(){
-	var uiconfig = require('/uiconfig');
-	height = Ti.Platform.displayCaps.platformHeight, width = Ti.Platform.displayCaps.platformWidth;
+
 	var title_label = Ti.UI.createLabel({
 		backgroundImage:'/images/header/logo(175,43).png',
 		width: uiconfig.TITLE_WIDTH,
@@ -29,8 +28,7 @@ exports.createTitleLabel = function(){
 };
 
 exports.createThemeButtonsView = function(){
-	var uiconfig = require('/uiconfig');
-	height = Ti.Platform.displayCaps.platformHeight, width = Ti.Platform.displayCaps.platformWidth;
+
 	var theme_buttons_view = Ti.UI.createView({
 		backgroundImage: '/images/header_under/next_header_bg(720,87).png',
 		width:Ti.UI.FILL,
@@ -46,8 +44,7 @@ exports.createThemeButtonsView = function(){
  * フッタ作成するときに呼ぶ
  */
 exports.createUnderRibbon = function(){
-	var uiconfig = require('/uiconfig');
-	height = Ti.Platform.displayCaps.platformHeight, width = Ti.Platform.displayCaps.platformWidth;
+
 	var underRibbon = Titanium.UI.createImageView({
 		image: '/images/footer/footer_bg(720,99).png',
 		width:Titanium.UI.FILL,
@@ -59,8 +56,7 @@ exports.createUnderRibbon = function(){
 };
 
 exports.createHomeButton = function(){
-	var uiconfig = require('/uiconfig');
-	height = Ti.Platform.displayCaps.platformHeight, width = Ti.Platform.displayCaps.platformWidth;
+
 	var home_button = Ti.UI.createButton({
 		backgroundImage: '/images/footer/footer_btn1(239,97).png',
 		bottom: 0,
@@ -72,8 +68,7 @@ exports.createHomeButton = function(){
 };
 
 exports.createListButton = function(){
-	var uiconfig = require('/uiconfig');
-	height = Ti.Platform.displayCaps.platformHeight, width = Ti.Platform.displayCaps.platformWidth;
+
 	var list_button = Ti.UI.createButton({
 		backgroundImage: '/images/footer/footer_btn2(239,97).png',
 		bottom: 0,
@@ -88,8 +83,7 @@ exports.createListButton = function(){
 };
 
 exports.createPeopleButton = function(){
-	var uiconfig = require('/uiconfig');
-	height = Ti.Platform.displayCaps.platformHeight, width = Ti.Platform.displayCaps.platformWidth;
+
 	var people_button = Ti.UI.createButton({
 		backgroundImage: '/images/footer/footer_btn3(238,97).png',
 		right: 0,
