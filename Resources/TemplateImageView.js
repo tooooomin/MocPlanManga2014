@@ -2,7 +2,7 @@
  * @author Shota Sujino
  */
 
-exports.TemplateImageView = function() {
+exports.TemplateImageView = function(selectNumber) {
 	var uiconfig = require("/uiconfig");
 	height = Ti.Platform.displayCaps.platformHeight, width = Ti.Platform.displayCaps.platformWidth;
 	var base_window = Titanium.UI.createWindow({
@@ -90,6 +90,19 @@ exports.TemplateImageView = function() {
 			height:width *0.25 -5,
 			left: row*(width*0.25),
 			top: column*(width*0.25)
+		});
+		// 写真のクリックイベント
+		photo_list[row + (column*4)].addEventListener("click",function(event){
+			// 編集画面にURLを渡す
+			//exports.select_photo = function(){  
+		  	//	return '/images/photo/material_' + (row + (column*4)) + '.png';
+		  		
+		  	var pathImage =  '/images/photo/material_' + (row + (column*4)) + '.png';
+		  		
+		  	require("/EditPictureWindow").EditPicturewindow(pathImage,selectNumber).open();
+			//};  
+			// 編集画面に遷移
+			//require("/EditPictureWindow").EditPicturewindow(imagePath).open();
 		});
 		main_scroll_base_view.add(photo_list[row + (column*4)]);
 		create_photo_row(row+1, column);

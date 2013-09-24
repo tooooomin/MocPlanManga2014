@@ -2,9 +2,13 @@
  * @author 佐々木 友弘
  */
 
-exports.EditPicturewindow = function() {
-	var uiconfig = require("/uiconfig");
-	height = Ti.Platform.displayCaps.platformHeight, width = Ti.Platform.displayCaps.platformWidth;
+exports.EditPicturewindow = function(imagePath,selectNumber) {
+	//デバック用のアラート
+	alert(selectNumber);
+	
+	//4コマの画面を保存する配列を初期
+	var ArrayParameter = require("ArrayParameter");
+	var mangaArray = ArrayParameter.return_array();
 	
 	//ベースの画面を作成
 	var base_window = Titanium.UI.createWindow({
@@ -15,18 +19,50 @@ exports.EditPicturewindow = function() {
 		orientationModes : [Titanium.UI.PORTRAIT],
 	});
 	
-	var testpicture = Ti.UI.createImageView({
-			image:'/images/testImage/bobsap.png',
+	/*
+	 * ヘッダ作成、今はロゴのみ
+	 */
+	var upperRibbon = require('/CreateCommonParts').createUpperRibbon();
+	base_window.add(upperRibbon);
+
+	var title_label = require('/CreateCommonParts').createTitleLabel();
+	base_window.add(title_label);
+
+	/*
+	 * ヘッダ作成ここまで
+	 */
+	
+	/*
+	 * フッタ作成、ホームボタン、作るボタン(list_button)、素材ボタン(people_button)
+	 */
+	var underRibbon = require('/CreateCommonParts').createUnderRibbon();
+	base_window.add(underRibbon);
+		
+	var home_button = require('/CreateCommonParts').createHomeButton();
+	base_window.add(home_button);
+	
+	var list_button = require('CreateCommonParts').createListButton();
+	base_window.add(list_button);	
+	
+	var people_button = require('/CreateCommonParts').createPeopleButton();
+	base_window.add(people_button);
+
+	/*
+	 * フッタ作成ここまで
+	 */
+	
+	var editPicture = Ti.UI.createImageView({
+			image:imagePath,
 			width:400,
 			height:400,
 			top:150,
 			center:width/2,	
 	});
 	
-	base_window.add(testpicture);
+	base_window.add(editPicture);
 	
 	var send_button = Ti.UI.createButton({
-		title: '投稿',
+		title: '完了',
 		width:width *0.5,
 		height:100,
 		bottom:height * 99 / uiconfig.ACTUAL_HEIGHT,
@@ -35,40 +71,15 @@ exports.EditPicturewindow = function() {
 	
 	base_window.add(send_button);
 	
+	//編集した画像のパスを選択したコマに入れる
+	var editImagePath = imagePath;
+	mangaArray[selectNumber] = imagePath;
+	
+	//編集を完了して4コマ選択画面に移動
 	send_button.addEventListener("click",function(event){
-		require("/CreateNewMangaWindow").CreateNewMangaWindow().open();
-	});
-
-	
-	var upperRibbon = Titanium.UI.createImageView({
-			image:uiconfig.COMMON_UP_BAR_IMAGE_PATH,
-			width: Ti.UI.FILL,
-			height: uiconfig.HEADER_RIBBON_HEIGHT,
-			top: 0,
+		require("/CreateNewMangaWindow").CreateNewMangaWindow().open();	
 	});
 	
-	base_window.add(upperRibbon);
-	
-	var underRibbon = Titanium.UI.createImageView({
-			image: '/images/footer/footer_bg(720,99).png',
-
-			width:Titanium.UI.FILL,
-			//height: 99,
-			height: height *(99/uiconfig.ACTUAL_HEIGHT),
-			bottom: 0
-	});
-	
-	var home_button = Ti.UI.createButton({
-		backgroundImage: '/images/footer/footer_btn1(239,97).png',
-		bottom: 0,
-		left: 0,
-		width: uiconfig.COMMON_UNDER_BOTTON_WIDTH,
-		height:uiconfig.COMMON_UNDER_BOTTON_HEIGHT
-	});
-	
-	base_window.add(home_button);
-	base_window.add(underRibbon);
-
 	return base_window;
 };
 

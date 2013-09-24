@@ -135,4 +135,4 @@ function MenuProjectFrame() {
 	return self;
 }
 
-module.exports = MenuProjectFrame; 
+module.exports = MenuProjectFrame;
