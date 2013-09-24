@@ -233,6 +233,7 @@ exports.createCommonNavigationWindow = function() {
 		right:uiconfig.THEME_BUTTON_WIDTH + (width -uiconfig.THEME_BUTTON_WIDTH *4) *0.4,
 		width: uiconfig.THEME_BUTTON_WIDTH,
 		height:uiconfig.THEME_BUTTON_HEIGHT
+
 	});
 	
 	theme_buttons_view.add(header_comment_button);
@@ -244,7 +245,6 @@ exports.createCommonNavigationWindow = function() {
 		width: uiconfig.THEME_BUTTON_WIDTH,
 		height:uiconfig.THEME_BUTTON_HEIGHT
 	});
-	
 	theme_buttons_view.add(header_template_button);
 		
 	base_window.upperRibbon = upperRibbon;
