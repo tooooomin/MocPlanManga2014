@@ -106,9 +106,7 @@ exports.CreateNewMangaWindow = function() {
 		center:width/2,	
 	});
 	
-//<<<<<<< HEAD
 	//編集したい4コマの画像をクリックしたときの処理
-//=======
 	/*
 	 * Event listener to open confirmation window
 	 */
@@ -117,7 +115,6 @@ exports.CreateNewMangaWindow = function() {
 		require('confirmWindow').createConfrimWindow().open();
 	});
 	
-//>>>>>>> 17eac4271a4e1369b87bd8843634344fd74b2394
 	function selectPicture(){
 		
 		var dialog = Titanium.UI.createOptionDialog({

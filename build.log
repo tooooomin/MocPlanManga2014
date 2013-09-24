@@ -5,15 +5,7 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-<<<<<<< HEAD
-<<<<<<< HEAD
-[DEBUG] waited 0.027000 seconds on emulator to get ready
-=======
-[DEBUG] waited 0.030000 seconds on emulator to get ready
->>>>>>> Merge0920
-=======
-[DEBUG] waited 0.023000 seconds on emulator to get ready
->>>>>>> Merge0920
+[DEBUG] waited 0.022000 seconds on emulator to get ready
 [DEBUG] com.cyberagent.app.manga installed? False
 [INFO] Copying CommonJS modules...
 [INFO] Copying project resources..
@@ -200,11 +192,6 @@ Logfile initialized
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\HTML\user_image\user_image.html => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\HTML\user_image\user_image.html
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\HTML\user_image\user_image_sample.jpg => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\HTML\user_image\user_image_sample.jpg
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\icon.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\icon.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\And\And.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\And\And.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\And\And_Pressed.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\And\And_Pressed.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\And\button.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\And\button.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\And\button_pressed => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\And\button_pressed
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\And\button_pressed.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\And\button_pressed.png
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\background\background.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\background\background.png
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\background\back_green.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\background\back_green.png
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\background\back_lightblue.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\background\back_lightblue.png
@@ -213,7 +200,6 @@ Logfile initialized
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\background\cork.jpg => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\background\cork.jpg
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\background\note.jpg => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\background\note.jpg
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\background\open_background.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\background\open_background.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\board\board.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\board\board.png
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\button\add\button.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\button\add\button.png
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\button\add\button_pressed.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\button\add\button_pressed.png
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\button\AddCard\createCardButton.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\button\AddCard\createCardButton.png
@@ -274,26 +260,7 @@ Logfile initialized
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\button\tweet\navibar\button.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\button\tweet\navibar\button.png
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\button\tweet\navibar\button_pressed.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\button\tweet\navibar\button_pressed.png
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\cancel\cancel.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\cancel\cancel.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\civ\ancient\back\background.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\civ\ancient\back\background.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\civ\ancient\back\background_night.PNG => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\civ\ancient\back\background_night.PNG
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\civ\ancient\house\house1.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\civ\ancient\house\house1.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\civ\ancient\item\fire.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\civ\ancient\item\fire.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\civ\ancient\man\man0.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\civ\ancient\man\man0.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\civ\ancient\man\man10.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\civ\ancient\man\man10.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\civ\ancient\man\man11.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\civ\ancient\man\man11.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\civ\ancient\man\man12.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\civ\ancient\man\man12.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\civ\bar\underbar1.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\civ\bar\underbar1.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\civ\bar\underbar2.PNG => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\civ\bar\underbar2.PNG
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\civ\cupcell\coin\coin.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\civ\cupcell\coin\coin.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\civ\cupcell\coin\coin1.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\civ\cupcell\coin\coin1.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\civ\cupcell\cupcell.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\civ\cupcell\cupcell.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\civ\cupcell\cupcell_open.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\civ\cupcell\cupcell_open.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\civ\food\apple.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\civ\food\apple.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\civ\food\grape.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\civ\food\grape.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\civ\religion\flask\flask.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\civ\religion\flask\flask.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\civ\religion\FSL\FSL.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\civ\religion\FSL\FSL.png
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\eventBatch\eventBatch.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\eventBatch\eventBatch.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\flowboard\board.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\flowboard\board.png
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\footer\footer_bg(720,99).png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\footer\footer_bg(720,99).png
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\footer\footer_btn1(239,97).png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\footer\footer_btn1(239,97).png
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\footer\footer_btn2(239,97).png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\footer\footer_btn2(239,97).png
@@ -344,44 +311,7 @@ Logfile initialized
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\navibar\profile\profileLabel.png.old => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\navibar\profile\profileLabel.png.old
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\navibar\tweet\tweetLabel.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\navibar\tweet\tweetLabel.png
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\note.jpg => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\note.jpg
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\opening\images\movie1.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\opening\images\movie1.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\opening\images\movie2.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\opening\images\movie2.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\opening\images\movie3.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\opening\images\movie3.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\opening\old_paper.jpg => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\opening\old_paper.jpg
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\opening\slide_button\left_button.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\opening\slide_button\left_button.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\opening\slide_button\left_button_pressed.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\opening\slide_button\left_button_pressed.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\opening\slide_button\right_button.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\opening\slide_button\right_button.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\opening\slide_button\right_button_pressed.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\opening\slide_button\right_button_pressed.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\postit\backpost.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\postit\backpost.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\postit\blue_post1.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\postit\blue_post1.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\postit\green_post1.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\postit\green_post1.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\postit\purple_post2.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\postit\purple_post2.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\postit\red_post1.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\postit\red_post1.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\postit\yellow_post1.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\postit\yellow_post1.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\result\circle.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\result\circle.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\result\circle2.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\result\circle2.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\result\clear1.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\result\clear1.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\result\cross.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\result\cross.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\result\cross2.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\result\cross2.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\result\resultImage1.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\result\resultImage1.png
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\serif\serif.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\serif\serif.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\share\add\button.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\share\add\button.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\share\add\button_pressed.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\share\add\button_pressed.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\share\And\button.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\share\And\button.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\share\And\button_pressed.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\share\And\button_pressed.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\share\good\button.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\share\good\button.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\share\good\button_pressed.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\share\good\button_pressed.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\share\good\good_added.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\share\good\good_added.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\share\OK\button.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\share\OK\button.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\share\OK\button_pressed.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\share\OK\button_pressed.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\share\OK_button2_pressed.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\share\OK_button2_pressed.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\share\OK_button_2.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\share\OK_button_2.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\share\try\button.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\share\try\button.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\share\try\button_pressed.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\share\try\button_pressed.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\share\tweet\button.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\share\tweet\button.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\share\tweet\button_pressed.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\share\tweet\button_pressed.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\Stamp\angry_cat.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\Stamp\angry_cat.png
-[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\Stamp\kijyo.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\Stamp\kijyo.png
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\Table\arrowDown1.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\Table\arrowDown1.png
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\Table\arrowUp1.png => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\Table\arrowUp1.png
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\images\Table\complete_stamp.gif => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\images\Table\complete_stamp.gif
@@ -413,6 +343,11 @@ Logfile initialized
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\user_image.html => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\user_image.html
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\user_image_sample.jpg => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\user_image_sample.jpg
 [TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\UsingMedia\imageFrame\MenuProjectFrame.js => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\UsingMedia\imageFrame\MenuProjectFrame.js
+[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\util\getbackPathWithTime.js => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\util\getbackPathWithTime.js
+[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\util\GetJSTime.js => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\util\GetJSTime.js
+[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\util\MergePoint.js => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\util\MergePoint.js
+[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\util\random.js => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\util\random.js
+[TRACE] COPYING CREATED FILE: C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\Resources\util\setProperty.js => C:\Users\fviAtt\TitaniumWorkSpace\MocPlanManga2014\build\android\bin\assets\Resources\util\setProperty.js
 [DEBUG] LiveView not enabled
 [TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
@@ -626,13 +561,6 @@ Logfile initialized
 [DEBUG] from resource zip => assets/Resources/OptionWindows/LikesWindow.js
 [DEBUG] from resource zip => assets/Resources/OptionWindows/MessagesWindow.js
 [DEBUG] from resource zip => assets/Resources/UsingMedia/imageFrame/MenuProjectFrame.js
-[DEBUG] from resource zip => assets/Resources/images/And/And.png
-[DEBUG] from resource zip => assets/Resources/images/And/And_Pressed.png
-[DEBUG] from resource zip => assets/Resources/images/And/button.png
-[DEBUG] from resource zip => assets/Resources/images/And/button_pressed
-[DEBUG] from resource zip => assets/Resources/images/And/button_pressed.png
-[DEBUG] from resource zip => assets/Resources/images/Stamp/angry_cat.png
-[DEBUG] from resource zip => assets/Resources/images/Stamp/kijyo.png
 [DEBUG] from resource zip => assets/Resources/images/Table/arrowDown1.png
 [DEBUG] from resource zip => assets/Resources/images/Table/arrowUp1.png
 [DEBUG] from resource zip => assets/Resources/images/Table/complete_stamp.gif
@@ -647,7 +575,6 @@ Logfile initialized
 [DEBUG] from resource zip => assets/Resources/images/background/cork.jpg
 [DEBUG] from resource zip => assets/Resources/images/background/note.jpg
 [DEBUG] from resource zip => assets/Resources/images/background/open_background.png
-[DEBUG] from resource zip => assets/Resources/images/board/board.png
 [DEBUG] from resource zip => assets/Resources/images/button/AddCard/createCardButton.png
 [DEBUG] from resource zip => assets/Resources/images/button/AddCard/createCardButton_Pressed.png
 [DEBUG] from resource zip => assets/Resources/images/button/And/And(1).png
@@ -708,26 +635,7 @@ Logfile initialized
 [DEBUG] from resource zip => assets/Resources/images/button/OK_button2_pressed.png
 [DEBUG] from resource zip => assets/Resources/images/button/OK_button_2.png
 [DEBUG] from resource zip => assets/Resources/images/cancel/cancel.png
-[DEBUG] from resource zip => assets/Resources/images/civ/ancient/back/background.png
-[DEBUG] from resource zip => assets/Resources/images/civ/ancient/back/background_night.PNG
-[DEBUG] from resource zip => assets/Resources/images/civ/ancient/house/house1.png
-[DEBUG] from resource zip => assets/Resources/images/civ/ancient/item/fire.png
-[DEBUG] from resource zip => assets/Resources/images/civ/ancient/man/man0.png
-[DEBUG] from resource zip => assets/Resources/images/civ/ancient/man/man10.png
-[DEBUG] from resource zip => assets/Resources/images/civ/ancient/man/man11.png
-[DEBUG] from resource zip => assets/Resources/images/civ/ancient/man/man12.png
-[DEBUG] from resource zip => assets/Resources/images/civ/bar/underbar1.png
-[DEBUG] from resource zip => assets/Resources/images/civ/bar/underbar2.PNG
-[DEBUG] from resource zip => assets/Resources/images/civ/cupcell/coin/coin.png
-[DEBUG] from resource zip => assets/Resources/images/civ/cupcell/coin/coin1.png
-[DEBUG] from resource zip => assets/Resources/images/civ/cupcell/cupcell.png
-[DEBUG] from resource zip => assets/Resources/images/civ/cupcell/cupcell_open.png
-[DEBUG] from resource zip => assets/Resources/images/civ/food/apple.png
-[DEBUG] from resource zip => assets/Resources/images/civ/food/grape.png
-[DEBUG] from resource zip => assets/Resources/images/civ/religion/FSL/FSL.png
-[DEBUG] from resource zip => assets/Resources/images/civ/religion/flask/flask.png
 [DEBUG] from resource zip => assets/Resources/images/eventBatch/eventBatch.png
-[DEBUG] from resource zip => assets/Resources/images/flowboard/board.png
 [DEBUG] from resource zip => assets/Resources/images/footer/footer_bg(720,99).png
 [DEBUG] from resource zip => assets/Resources/images/footer/footer_btn1(239,97).png
 [DEBUG] from resource zip => assets/Resources/images/footer/footer_btn2(239,97).png
@@ -777,42 +685,7 @@ Logfile initialized
 [DEBUG] from resource zip => assets/Resources/images/navibar/flow_navibar.png
 [DEBUG] from resource zip => assets/Resources/images/navibar/flow_under.png
 [DEBUG] from resource zip => assets/Resources/images/navibar/flow_under_blue.png
-[DEBUG] from resource zip => assets/Resources/images/opening/images/movie1.png
-[DEBUG] from resource zip => assets/Resources/images/opening/images/movie2.png
-[DEBUG] from resource zip => assets/Resources/images/opening/images/movie3.png
-[DEBUG] from resource zip => assets/Resources/images/opening/slide_button/left_button.png
-[DEBUG] from resource zip => assets/Resources/images/opening/slide_button/left_button_pressed.png
-[DEBUG] from resource zip => assets/Resources/images/opening/slide_button/right_button.png
-[DEBUG] from resource zip => assets/Resources/images/opening/slide_button/right_button_pressed.png
-[DEBUG] from resource zip => assets/Resources/images/opening/old_paper.jpg
-[DEBUG] from resource zip => assets/Resources/images/postit/backpost.png
-[DEBUG] from resource zip => assets/Resources/images/postit/blue_post1.png
-[DEBUG] from resource zip => assets/Resources/images/postit/green_post1.png
-[DEBUG] from resource zip => assets/Resources/images/postit/purple_post2.png
-[DEBUG] from resource zip => assets/Resources/images/postit/red_post1.png
-[DEBUG] from resource zip => assets/Resources/images/postit/yellow_post1.png
-[DEBUG] from resource zip => assets/Resources/images/result/circle.png
-[DEBUG] from resource zip => assets/Resources/images/result/circle2.png
-[DEBUG] from resource zip => assets/Resources/images/result/clear1.png
-[DEBUG] from resource zip => assets/Resources/images/result/cross.png
-[DEBUG] from resource zip => assets/Resources/images/result/cross2.png
-[DEBUG] from resource zip => assets/Resources/images/result/resultImage1.png
 [DEBUG] from resource zip => assets/Resources/images/serif/serif.png
-[DEBUG] from resource zip => assets/Resources/images/share/And/button.png
-[DEBUG] from resource zip => assets/Resources/images/share/And/button_pressed.png
-[DEBUG] from resource zip => assets/Resources/images/share/OK/button.png
-[DEBUG] from resource zip => assets/Resources/images/share/OK/button_pressed.png
-[DEBUG] from resource zip => assets/Resources/images/share/add/button.png
-[DEBUG] from resource zip => assets/Resources/images/share/add/button_pressed.png
-[DEBUG] from resource zip => assets/Resources/images/share/good/button.png
-[DEBUG] from resource zip => assets/Resources/images/share/good/button_pressed.png
-[DEBUG] from resource zip => assets/Resources/images/share/good/good_added.png
-[DEBUG] from resource zip => assets/Resources/images/share/try/button.png
-[DEBUG] from resource zip => assets/Resources/images/share/try/button_pressed.png
-[DEBUG] from resource zip => assets/Resources/images/share/tweet/button.png
-[DEBUG] from resource zip => assets/Resources/images/share/tweet/button_pressed.png
-[DEBUG] from resource zip => assets/Resources/images/share/OK_button2_pressed.png
-[DEBUG] from resource zip => assets/Resources/images/share/OK_button_2.png
 [DEBUG] from resource zip => assets/Resources/images/testImage/bobsap.png
 [DEBUG] from resource zip => assets/Resources/images/testImage/select_photo1.png
 [DEBUG] from resource zip => assets/Resources/images/testImage/select_photo2.png
@@ -824,6 +697,11 @@ Logfile initialized
 [DEBUG] from resource zip => assets/Resources/images/transparent.png
 [DEBUG] from resource zip => assets/Resources/publishkey/keystoreinfo.txt
 [DEBUG] from resource zip => assets/Resources/publishkey/publishkey
+[DEBUG] from resource zip => assets/Resources/util/GetJSTime.js
+[DEBUG] from resource zip => assets/Resources/util/MergePoint.js
+[DEBUG] from resource zip => assets/Resources/util/getbackPathWithTime.js
+[DEBUG] from resource zip => assets/Resources/util/random.js
+[DEBUG] from resource zip => assets/Resources/util/setProperty.js
 [DEBUG] from resource zip => assets/Resources/CommonNavigationWindow.js
 [DEBUG] from resource zip => assets/Resources/ConfigWindow.js
 [DEBUG] from resource zip => assets/Resources/CreateCommonParts.js
@@ -895,10 +773,6 @@ Logfile initialized
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-<<<<<<< HEAD
-[DEBUG] waited 0.021000 seconds on emulator to get ready
-=======
-[DEBUG] waited 0.020000 seconds on emulator to get ready
->>>>>>> Merge0920
+[DEBUG] waited 0.018000 seconds on emulator to get ready
 [INFO] Installing application on device
 [INFO] Application installed. Launch from drawer on Home Screen
