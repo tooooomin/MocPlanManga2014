@@ -30,6 +30,7 @@ exports.CreateNewMangaWindow = function() {
   		width: Ti.UI.FILL,
   		top:uiconfig.HEADER_RIBBON_HEIGHT,
   		bottom:uiconfig.HEADER_RIBBON_HEIGHT,
+
 	});
 	
 	//スクロール用の画面をベースの画面にadd、main_scroll_base_viewにはパーツをaddする
@@ -40,8 +41,8 @@ exports.CreateNewMangaWindow = function() {
 	 * ここから下に中身の実装を行う
 	 * 
 	 */
-	
-	var message_label = Ti.UI.createLabel({
+	//>>>>>HEAD
+		var message_label = Ti.UI.createLabel({
 			text:'４コマを選択して下さい',
 			height:40,
 			center:width/2,
@@ -51,12 +52,36 @@ exports.CreateNewMangaWindow = function() {
 			}
 		});
 				
+
+	var option_username_label = Ti.UI.createLabel({
+			text:'タイトルを入力して下さい',
+			width:width *0.5,
+			font:{fontSize:12, fontWeight:'bold'},
+			height:20,
+			top:20,
+			center:width/2,	
+		});
+	
+		
+	//タイトルを作成する画面
+	var input_title = Ti.UI.createTextField({
+		color: '#333333',
+		hinttext: 'タイトル',
+		height:100,
+		width:300,
+		top:60,
+		center:width/2,	
+		borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	});
+	
+			
+//>>>>>>> 7a7a84ca9cbf0f24ec6d3563a2481204beb543e9
 	var selectphoto1 = Ti.UI.createImageView({
 			image:'/images/testImage/select_photo1.png',
 			width:width *0.5,
 			height:height *0.2,
 			top:uiconfig.HEADER_RIBBON_HEIGHT + 60,
-			center:width/2,	
+
 	});
 	
 	var selectphoto2 = Ti.UI.createImageView({
@@ -64,7 +89,7 @@ exports.CreateNewMangaWindow = function() {
 			width:width *0.5,
 			height:height *0.2,
 			top:uiconfig.HEADER_RIBBON_HEIGHT + selectphoto1.height + 60,
-			center:width/2,	
+
 	});
 	
 	var selectphoto3 = Ti.UI.createImageView({
@@ -72,7 +97,6 @@ exports.CreateNewMangaWindow = function() {
 			width:width *0.5,
 			height:height *0.2,
 			top:uiconfig.HEADER_RIBBON_HEIGHT + selectphoto1.height*2 + 60,
-			center:width/2,	
 	});
 	
 	var selectphoto4 = Ti.UI.createImageView({
@@ -97,6 +121,7 @@ exports.CreateNewMangaWindow = function() {
 		returnKeyType:Titanium.UI.RETURNKEY_DEFAULT,
 		borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
 	});
+
 		
 	var send_button = Ti.UI.createButton({
 		title: '投稿',
@@ -121,6 +146,7 @@ exports.CreateNewMangaWindow = function() {
 			title : 'マッチする画像を選びましょう',
 			options : ['撮影する', 'ギャラリーから選択する','素材を探す',L('cancel')],
 			cancel : 3
+
 		});
 		
 		dialog.show();
@@ -132,11 +158,13 @@ exports.CreateNewMangaWindow = function() {
 			} else if(dialog_button.index == 1) {
 				require('/EditPictureWindow').EditPicturewindow().open();
 			} else if(dialog_button.index == 2) {
+
 				require('/EditPictureWindow').EditPicturewindow().open();
 			} else if(dialog_button.index == 3) {
 				alert('キャンセル');
 			}		
 		});	
+
 	}
 
 	selectphoto1.addEventListener("click",function(event){
@@ -154,8 +182,9 @@ exports.CreateNewMangaWindow = function() {
 	selectphoto4.addEventListener("click",function(event){
 		selectPicture();
 	});
-		
+
 	main_scroll_base_view.add(input_title);	
+
 
 	main_scroll_base_view.add(selectphoto1);
 	main_scroll_base_view.add(selectphoto2);
@@ -163,7 +192,9 @@ exports.CreateNewMangaWindow = function() {
 	main_scroll_base_view.add(selectphoto4);
 	main_scroll_base_view.add(send_button);
 	
+
 	main_scroll_base_view.add(message_label);
+
 	
 	return base_window;
 };
