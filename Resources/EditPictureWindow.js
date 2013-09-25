@@ -55,7 +55,7 @@ exports.EditPicturewindow = function(imagePath,selectNumber) {
 			image:imagePath,
 			width:400,
 			height:400,
-			top:150,
+			top:uiconfig.HEADER_RIBBON_HEIGHT * 1.1,
 			center:width/2,	
 	});
 	
@@ -73,9 +73,9 @@ exports.EditPicturewindow = function(imagePath,selectNumber) {
 	
 	var comment_text = Ti.UI.createTextField({
 		color:'#336699',
-		center: {x:width/2},
+		center: {x:width * 0.40},
 		bottom: (send_button.bottom + send_button.height) *1.1,
-		width:width * 4/5,
+		width:width * 0.7,
 		height:100,
 		hintText:'コメントを追加できます',
 		font:{fontSize:20, fontWeight:'bold'},
@@ -86,6 +86,26 @@ exports.EditPicturewindow = function(imagePath,selectNumber) {
 	});
 	
 	base_window.add(comment_text);
+
+	var title_label = Ti.UI.createLabel({
+		text:'たいとる',
+		width:editPicture.width,
+		height:120,
+		top: editPicture.bottom + 10,
+		textAlign:'center'
+	});
+	
+	base_window.add(title_label);
+
+	var ok_button = Ti.UI.createButton({
+		title: 'OK',
+		bottom: (send_button.bottom + send_button.height) *1.1,
+		right: width * 0.05,
+		width: 100,
+		height: 120
+	});
+	
+	base_window.add(ok_button);
 	
 	//編集した画像のパスを選択したコマに入れる
 	var editImagePath = imagePath;
