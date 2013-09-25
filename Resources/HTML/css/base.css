@@ -39,6 +39,8 @@ ul.userInfoContainer > li.userIcon {
 
 ul.socialContainer {
 	padding: 10px 0 40px 0px;
+	float: left;
+
 }
 
 ul.socialContainer > li.socialIcon {
@@ -58,6 +60,12 @@ ul.socialContainer > li.socialIcon > span {
 	display: inline-block;
 	margin-right: 10px;
 	width: 24px;
+	font-size: 30px;
+}
+
+div.edit {
+	padding: 10px 0 40px 0px;
+	float: right;
 	font-size: 30px;
 }
 
