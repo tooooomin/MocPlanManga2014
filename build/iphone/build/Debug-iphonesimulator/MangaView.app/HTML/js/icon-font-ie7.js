@@ -1,1 +1,0 @@
-/Users/shota/Documents/Titanium_Studio_Workspace/MocPlanManga2014/Resources/HTML/js/icon-font-ie7.js
