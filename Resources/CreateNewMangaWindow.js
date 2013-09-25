@@ -12,7 +12,7 @@ exports.CreateNewMangaWindow = function() {
 		backgroundColor : '#fff',
 		exitOnClose : false,
 		fullscreen : true,
-		//navBarHidden : true,
+		navBarHidden : true,
 		orientationModes : [Titanium.UI.PORTRAIT],
 	});
 	
@@ -20,7 +20,7 @@ exports.CreateNewMangaWindow = function() {
 	var main_scroll_base_view = Ti.UI.createView({
 		width:Ti.UI.FILL,
 		height:uiconfig.ACTUAL_HEIGHT * 1.2,
-		backgroundColor:'rgb(255,235,205)',
+		backgroundColor:'rgb(255,255,255)',
 	});
 	
 	//スクロールする
@@ -79,22 +79,22 @@ exports.CreateNewMangaWindow = function() {
 	var ArrayParameter = require("ArrayParameter");
 	var mangaArray = ArrayParameter.return_array();
 	
-	//4コマ入力を行ってもらうメッセージ
-	var message_label = Ti.UI.createLabel({
-		text:'４コマを選択して下さい',
-		height:40,
-		center:width/2,
-		top:uiconfig.HEADER_RIBBON_HEIGHT,
-		font : {
-			fontSize : 28
-		}
-	});
+	// //4コマ入力を行ってもらうメッセージ
+	// var message_label = Ti.UI.createLabel({
+		// text:'４コマを選択して下さい',
+		// height:40,
+		// center:width/2,
+		// top:uiconfig.HEADER_RIBBON_HEIGHT,
+		// font : {
+			// fontSize : 28
+		// }
+	// });
 					
 	//1コマ目の画像
 	var selectphoto1 = Ti.UI.createImageView({
 			image:mangaArray[0],
-			width:width *0.5,
-			height:height *0.2,
+			width: width *(480/uiconfig.ACTUAL_WIDTH),
+			height: height *(200/uiconfig.ACTUAL_HEIGHT),
 			top:uiconfig.HEADER_RIBBON_HEIGHT + 60,
 
 	});
@@ -102,33 +102,80 @@ exports.CreateNewMangaWindow = function() {
 	//2コマ目の画像
 	var selectphoto2 = Ti.UI.createImageView({
 			image:mangaArray[1],
-			width:width *0.5,
-			height:height *0.2,
-			top:uiconfig.HEADER_RIBBON_HEIGHT + selectphoto1.height + 60,
+			width: width *(480/uiconfig.ACTUAL_WIDTH),
+			height: height *(200/uiconfig.ACTUAL_HEIGHT),
+			top: selectphoto1.top + selectphoto1.height
 
 	});
 	
 	//3コマ目の画像
 	var selectphoto3 = Ti.UI.createImageView({
 			image:mangaArray[2],
-			width:width *0.5,
-			height:height *0.2,
-			top:uiconfig.HEADER_RIBBON_HEIGHT + selectphoto1.height*2 + 60,
+			width: width *(480/uiconfig.ACTUAL_WIDTH),
+			height: height *(200/uiconfig.ACTUAL_HEIGHT),
+			//top:uiconfig.HEADER_RIBBON_HEIGHT + selectphoto1.height*2 + 60,
+			top: selectphoto2.top + selectphoto2.height
 	});
 	
 	//4コマ目の画像
 	var selectphoto4 = Ti.UI.createImageView({
 			image:mangaArray[3],
-			width:width *0.5,
-			height:height *0.2,
-			top:uiconfig.HEADER_RIBBON_HEIGHT + selectphoto1.height*3 + 60,
-			center:width/2,
+			width: width *(480/uiconfig.ACTUAL_WIDTH),
+			height: height *(200/uiconfig.ACTUAL_HEIGHT),
+			top: selectphoto3.top + selectphoto3.height
+	});
+	
+	//タイトルメッセージ
+	var title_view = Ti.UI.createImageView({
+		image:'/images/createNewMangaWindow_Design/title.jpg',
+		width: width *(260/uiconfig.ACTUAL_WIDTH),
+		height: height *(50/uiconfig.ACTUAL_HEIGHT),
+		left: (width - selectphoto1.width) * 0.5,
+		top: selectphoto1.top - height *(50/uiconfig.ACTUAL_HEIGHT),
+	});
+	
+	//4コマ入力を行ってもらうメッセージ
+	var message_view = Ti.UI.createImageView({
+		image:'/images/createNewMangaWindow_Design/message.png',
+		width: width *(480/uiconfig.ACTUAL_WIDTH),
+		height: height *(65/uiconfig.ACTUAL_HEIGHT),
+		//left: (width - selectphoto1.width) * 0.5,
+		top: selectphoto4.top + selectphoto4.height + 10
+	});
+	
+	//4コマ入力部分の外枠
+	var outline_view = Ti.UI.createImageView({
+		image:'/images/createNewMangaWindow_Design/title_outline.png',
+		width: width *(490/uiconfig.ACTUAL_WIDTH),
+		height: height *(220/uiconfig.ACTUAL_HEIGHT),
+		//left: (width - selectphoto1.width) * 0.5,
+		top: message_view.top + message_view.height
+	});
+	
+	//4コマ入力部分の外枠
+	var input_view = Ti.UI.createImageView({
+		image:'/images/createNewMangaWindow_Design/input_title.png',
+		width: width *(400/uiconfig.ACTUAL_WIDTH),
+		height: height *(55/uiconfig.ACTUAL_HEIGHT),
+		top: outline_view.top + 10
+	});
+	
+	//4コマを投稿するボタン	
+	var send_button = Ti.UI.createButton({
+		backgroundImage: '/images/createNewMangaWindow_Design/post_btn.png',
+		width: width *(95/uiconfig.ACTUAL_WIDTH),
+		height: height *(35/uiconfig.ACTUAL_HEIGHT),
+		left: (width - input_view.width) *0.5,
+		top: input_view.top + input_view.height + 10
 	});
 	
 	//タイトルを作成するテキストボックス
 	var input_title = Ti.UI.createTextField({
+		backgroundColor:'rgb(255,235,205)',
+		focusable:false,
 		color:'#336699',
-		top:uiconfig.HEADER_RIBBON_HEIGHT + selectphoto1.height*4 + 90,
+		//top: input_view.top + input_view.height,
+		top: 2000,
 		center:width/2,	
 		width:width * 4/5,
 		height:100,
@@ -140,23 +187,28 @@ exports.CreateNewMangaWindow = function() {
 		borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
 	});
 
-	//4コマを投稿する画面	
-	var send_button = Ti.UI.createButton({
-		title: '投稿',
-		width:width *0.5,
-		height:100,
-		top:uiconfig.HEADER_RIBBON_HEIGHT + selectphoto1.height*4 + input_title.height + 120,
-		center:width/2,	
-	});
+	// //4コマを投稿する画面	
+	// var send_button = Ti.UI.createButton({
+		// title: '投稿',
+		// width:width *0.5,
+		// height:100,
+		// top:2000,
+		// center:width/2,	
+	// });
 	
 	//UI素材をスクロール画面にadd
-	main_scroll_base_view.add(input_title);	
 	main_scroll_base_view.add(selectphoto1);
 	main_scroll_base_view.add(selectphoto2);
 	main_scroll_base_view.add(selectphoto3);
 	main_scroll_base_view.add(selectphoto4);
+	main_scroll_base_view.add(title_view);
+	main_scroll_base_view.add(message_view);
+	main_scroll_base_view.add(outline_view);
+	main_scroll_base_view.add(input_view);
 	main_scroll_base_view.add(send_button);
-	main_scroll_base_view.add(message_label);
+	main_scroll_base_view.add(input_title);	
+
+
 	
 
 	/*
@@ -261,6 +313,10 @@ exports.CreateNewMangaWindow = function() {
 	
 	selectphoto4.addEventListener("click",function(event){
 		selectPicture(3);
+	});
+	
+	base_window.addEventListener('open',function(event){
+		input_title.blur();
 	});
 
 	return base_window;
