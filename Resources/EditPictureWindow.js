@@ -56,25 +56,27 @@ exports.EditPicturewindow = function(imagePath,selectNumber) {
 			width:400,
 			height:400,
 			top:uiconfig.HEADER_RIBBON_HEIGHT * 1.1,
+			bottom: (uiconfig.HEADER_RIBBON_HEIGHT * 1.1 + 400/*this.height*/) *1.05,
 			center:width/2,	
 	});
 	
 	base_window.add(editPicture);
 	
-	var send_button = Ti.UI.createButton({
-		title: '完了',
-		width:width *0.5,
-		height:100,
-		bottom:height * 99 / uiconfig.ACTUAL_HEIGHT,
-		center:width/2,	
+	var title_label = Ti.UI.createLabel({
+		text:'たいとる',
+		color: 'black',
+		width:editPicture.width,
+		height:120,
+		top: editPicture.bottom + 10,
+		textAlign:'center'
 	});
 	
-	base_window.add(send_button);
+	base_window.add(title_label);
 	
 	var comment_text = Ti.UI.createTextField({
 		color:'#336699',
 		center: {x:width * 0.40},
-		bottom: (send_button.bottom + send_button.height) *1.1,
+		bottom: ((height * 99 / uiconfig.ACTUAL_HEIGHT) + 100) *1.1,
 		width:width * 0.7,
 		height:100,
 		hintText:'コメントを追加できます',
@@ -87,15 +89,16 @@ exports.EditPicturewindow = function(imagePath,selectNumber) {
 	
 	base_window.add(comment_text);
 
-	var title_label = Ti.UI.createLabel({
-		text:'たいとる',
-		width:editPicture.width,
-		height:120,
-		top: editPicture.bottom + 10,
-		textAlign:'center'
+	var send_button = Ti.UI.createButton({
+		title: '完了',
+		width:width *0.5,
+		height:100,
+		bottom:height * 99 / uiconfig.ACTUAL_HEIGHT,
+		center:width/2,	
 	});
+
 	
-	base_window.add(title_label);
+	base_window.add(send_button);
 
 	var ok_button = Ti.UI.createButton({
 		title: 'OK',
@@ -106,6 +109,13 @@ exports.EditPicturewindow = function(imagePath,selectNumber) {
 	});
 	
 	base_window.add(ok_button);
+
+	ok_button.addEventListener('click',function(){
+		//alert('OK');
+		var title_string = comment_text.value;
+		title_label.text = title_string;
+		comment_text.value = '';
+	});
 	
 	//編集した画像のパスを選択したコマに入れる
 	var editImagePath = imagePath;
