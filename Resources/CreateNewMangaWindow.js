@@ -12,7 +12,7 @@ exports.CreateNewMangaWindow = function() {
 		backgroundColor : '#fff',
 		exitOnClose : false,
 		fullscreen : true,
-		//navBarHidden : true,
+		navBarHidden : true,
 		orientationModes : [Titanium.UI.PORTRAIT],
 	});
 	
@@ -127,6 +127,8 @@ exports.CreateNewMangaWindow = function() {
 	
 	//タイトルを作成するテキストボックス
 	var input_title = Ti.UI.createTextField({
+		backgroundColor:'rgb(255,235,205)',
+		focusable:false,
 		color:'#336699',
 		top:uiconfig.HEADER_RIBBON_HEIGHT + selectphoto1.height*4 + 90,
 		center:width/2,	
@@ -261,6 +263,10 @@ exports.CreateNewMangaWindow = function() {
 	
 	selectphoto4.addEventListener("click",function(event){
 		selectPicture(3);
+	});
+	
+	base_window.addEventListener('open',function(event){
+		input_title.blur();
 	});
 
 	return base_window;
