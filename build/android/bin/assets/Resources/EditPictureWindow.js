@@ -71,6 +71,22 @@ exports.EditPicturewindow = function(imagePath,selectNumber) {
 	
 	base_window.add(send_button);
 	
+	var comment_text = Ti.UI.createTextField({
+		color:'#336699',
+		center: {x:width/2},
+		bottom: (send_button.bottom + send_button.height) *1.1,
+		width:width * 4/5,
+		height:100,
+		hintText:'コメントを追加できます',
+		font:{fontSize:20, fontWeight:'bold'},
+		navBarHidden:true,
+		keyboardType:Titanium.UI.KEYBOARD_DEFAULT,
+		returnKeyType:Titanium.UI.RETURNKEY_DEFAULT,
+		borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+	});
+	
+	base_window.add(comment_text);
+	
 	//編集した画像のパスを選択したコマに入れる
 	var editImagePath = imagePath;
 	mangaArray[selectNumber] = imagePath;
