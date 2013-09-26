@@ -27,8 +27,9 @@
 
 /* # top
 ---------------------------------------------------------------------------- */
+
 ul.userInfoContainer {
-	padding: 10px 0 40px 0px;
+	padding: 10px 0 0;
 }
 
 ul.userInfoContainer > li.userIcon {
@@ -37,23 +38,22 @@ ul.userInfoContainer > li.userIcon {
 	list-style-type: none;
 }
 
-ul.socialContainer {
-	padding: 10px 0 40px 0px;
-	float: left;
+p.userName {
+	margin-bottom: 0px;
+}
 
+p.title {
+	font-size: 1.3em;
+}
+
+ul.socialContainer {
+	padding: 10px 0;
 }
 
 ul.socialContainer > li.socialIcon {
 	float: left;
-	/*margin-right: 10px;*/
 	list-style-type: none;
-}
-
-ul.socialContainer > li.socialNumber{
-	float: left;
-	margin-right: 10px;
-	padding-top: 10px;
-	list-style-type: none;
+	margin-right: 5px;
 }
 
 ul.socialContainer > li.socialIcon > span {
@@ -63,14 +63,26 @@ ul.socialContainer > li.socialIcon > span {
 	font-size: 30px;
 }
 
-div.edit {
-	padding: 10px 0 40px 0px;
-	float: right;
-	font-size: 30px;
+ul.socialCount {
+	padding: 10px 0;
+	margin: 80px 0 40px;
+}
+
+ul.socialCount > li.socialIcon {
+	float: left;
+	list-style-type: none;
+	margin-right: 5px;
+}
+
+ul.socialCount > li.socialNumber{
+	float: left;
+	margin-right: 10px;
+	padding-top: 10px;
+	list-style-type: none;
 }
 
 .description {
 	border: 1px solid #7F8C8D;
 	padding: 10px;
-	margin: 10px 0;
+	margin: 40px 0 10px;
 }
