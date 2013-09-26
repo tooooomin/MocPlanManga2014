@@ -1,9 +1,9 @@
 var array = new Array(4);
 
-array[0] = '/images/testImage/select_photo1.png';
-array[1] = '/images/testImage/select_photo2.png';
-array[2] = '/images/testImage/select_photo3.png';
-array[3] = '/images/testImage/select_photo4.png';
+array[0] = '/images/createNewMangaWindow_Design/contribute_1.png';
+array[1] = '/images/createNewMangaWindow_Design/contribute_2.png';
+array[2] = '/images/createNewMangaWindow_Design/contribute_3.png';
+array[3] = '/images/createNewMangaWindow_Design/contribute_4.png';
 
 /*text_array[0] = '';
 text_array[1] = '';
